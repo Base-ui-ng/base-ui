@@ -1,4 +1,4 @@
-> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx base-ui-cli add <name>` from [base-ui.net](https://base-ui.net).
+> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx base-ui-cli add button` from [base-ui.net](https://base-ui.net).
 
 # Base UI — Angular + Tailwind Component Library
 
