@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation & live previews
+    url: https://base-ui.net
+    about: Component catalog, cookbooks, and getting started
+  - name: Security vulnerability
+    url: https://github.com/Base-ui-ng/base-ui/blob/main/SECURITY.md
+    about: Email security@base-ui.net — do not open a public issue for an unfixed vulnerability
+  - name: Support
+    url: mailto:support@base-ui.net
+    about: License, billing, and account questions
