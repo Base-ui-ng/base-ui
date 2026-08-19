@@ -2,6 +2,10 @@
 
 # Base UI — Angular + Tailwind Component Library
 
+[![npm](https://img.shields.io/npm/v/base-ui-cli.svg)](https://www.npmjs.com/package/base-ui-cli)
+[![npm downloads](https://img.shields.io/npm/dw/base-ui-cli.svg)](https://www.npmjs.com/package/base-ui-cli)
+[![GitHub stars](https://img.shields.io/github/stars/Base-ui-ng/base-ui?style=social)](https://github.com/Base-ui-ng/base-ui)
+
 A comprehensive Tailwind CSS component ecosystem for modern Angular: **208 components and blocks** (119 free, 89 pro), **390 icons**, and 17 full page layouts — standalone, zoneless, signal-based and **SSR-safe**, delivered shadcn-style: the source is copied into your project and it's yours.
 
 📚 **Documentation & live previews**: [base-ui.net](https://base-ui.net)  
@@ -176,3 +180,5 @@ The CLI *tool itself* ([`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli
 ## 🆘 Support
 
 Email support@base-ui.net.
+Bugs and features: [GitHub Issues](https://github.com/Base-ui-ng/base-ui/issues).
+How to contribute (issues and discussions only): [CONTRIBUTING.md](CONTRIBUTING.md).

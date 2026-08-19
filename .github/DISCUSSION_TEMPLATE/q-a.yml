@@ -1,0 +1,22 @@
+title: '[Q] '
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Usage and how-to questions belong here. **Bugs** go in [Issues](https://github.com/Base-ui-ng/base-ui/issues/new?template=bug_report.md).
+
+        Do not paste license keys, Pro component source, or private registry URLs.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What are you trying to do, and what have you already tried?
+      placeholder: I ran `npx base-ui-cli add dialog` and …
+    validations:
+      required: true
+  - type: input
+    id: angular
+    attributes:
+      label: Angular version
+      placeholder: '22.1'

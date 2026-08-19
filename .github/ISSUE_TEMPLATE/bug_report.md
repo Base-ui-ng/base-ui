@@ -6,6 +6,8 @@ labels: bug
 assignees: ''
 ---
 
+**Do not include** license keys, Pro component source, or authenticated registry URLs.
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

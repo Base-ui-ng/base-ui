@@ -3,6 +3,12 @@ contact_links:
   - name: Documentation & live previews
     url: https://base-ui.net
     about: Component catalog, cookbooks, and getting started
+  - name: Questions & help
+    url: https://github.com/Base-ui-ng/base-ui/discussions/new?category=q-a
+    about: Usage questions — not for bugs or security reports
+  - name: Show and tell
+    url: https://github.com/Base-ui-ng/base-ui/discussions/new?category=show-and-tell
+    about: Share something you built with Base UI
   - name: Security vulnerability
     url: https://github.com/Base-ui-ng/base-ui/blob/main/SECURITY.md
     about: Email security@base-ui.net — do not open a public issue for an unfixed vulnerability

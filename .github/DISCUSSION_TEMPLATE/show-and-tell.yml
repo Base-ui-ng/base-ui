@@ -1,0 +1,14 @@
+title: '[Show] '
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share something you built with Base UI. Do not paste license keys or Pro source.
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you build?
+      placeholder: A short description and a link to a live demo or public repo.
+    validations:
+      required: true
