@@ -12,6 +12,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 - **Other** — Isolate product-card hover so sibling cards in a row do not react.
 - **Other** — Add hover-open nested menubar menus and stay-open selectable items.
+- **Chores** — **mcp:** bump zod to 4.4.3
 - **Chores** — bump tailwind-merge to 3.6.0
 - **Other** — Point the product at the public GitHub hub and add community guardrails.
 - **Bug Fixes** — **cli:** keep fetch out of the published bin entry
