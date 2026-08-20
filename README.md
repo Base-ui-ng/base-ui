@@ -12,7 +12,7 @@ A comprehensive Tailwind CSS component ecosystem for modern Angular: **208 compo
 📝 **Changelog**: [base-ui.net/changelog](https://base-ui.net/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/Base-ui-ng/base-ui/issues)  
 ♿ **Accessibility (ACR)**: [base-ui.net/accessibility](https://base-ui.net/accessibility) · `npm run test:a11y`  
 🖥️ **SSR-safe**: the docs site prerenders every catalog route, enforced by a blocking CI job · [how we verify it](https://base-ui.net/learn/angular-ssr-safe-component-library/)  
-🤖 **AI agents (MCP)**: [base-ui.net/getting-started#ai-agents-mcp](https://base-ui.net/getting-started#ai-agents-mcp) · `@lussos/base-ui-mcp`  
+🤖 **AI agents (MCP)**: [base-ui.net/getting-started#ai-agents-mcp](https://base-ui.net/getting-started#ai-agents-mcp) · `@lussos/base-ui-mcp` · [why copy-in UI works better with LLMs](https://base-ui.net/learn/why-llms-write-better-code-with-copy-in-ui/)  
 🎨 **Figma Design System**: [Figma Community File](https://www.figma.com/community/file/1662825988518656661)  
 ✨ **See what you can build for free**: [Live Admin Dashboard Demo](https://base-ui-free-dashboard-demo.pages.dev/app/dashboard) (Source code: [base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard))
 
