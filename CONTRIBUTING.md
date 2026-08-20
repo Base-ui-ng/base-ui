@@ -37,4 +37,4 @@ Please file an issue (or a discussion for questions) instead.
 - Live catalog: [base-ui.net](https://base-ui.net)
 - Free admin dashboard (source): [lussos/base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard)
 - CLI: [`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli)
-- MCP: [`@lussos/base-ui-mcp`](https://www.npmjs.com/package/@lussos/base-ui-mcp)
+- MCP: [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp)

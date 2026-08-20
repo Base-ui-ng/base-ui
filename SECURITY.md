@@ -27,7 +27,7 @@ in the changelog unless you prefer to stay anonymous.
 | Component | Supported |
 |---|---|
 | `base-ui-cli` | latest minor |
-| `@lussos/base-ui-mcp` | latest minor |
+| `base-ui-mcp` | latest minor |
 | Component source copied into your project | you own it — pull fixes with `npx base-ui-cli update` |
 
 ## What the CLI does on your machine
@@ -124,7 +124,7 @@ changed, and `update` never silently overwrites your edits.
 **Dependency footprint.** The published tarball has **no runtime npm
 dependencies** — `diff`, `ora`, `prompts`, and `zod` are bundled into
 `dist/index.js` at publish time. CI blocks a release when the shipped tree of **either**
-published package (`base-ui-cli` or `@lussos/base-ui-mcp`) carries a moderate or
+published package (`base-ui-cli` or `base-ui-mcp`) carries a moderate or
 higher advisory, and asserts the CLI tarball contains nothing but `dist/`,
 `README.md`, `LICENSE`, and `package.json`. Both packages currently report zero
 vulnerabilities in their shipped trees:

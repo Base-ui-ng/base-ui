@@ -12,7 +12,7 @@ A comprehensive Tailwind CSS component ecosystem for modern Angular: **208 compo
 📝 **Changelog**: [base-ui.net/changelog](https://base-ui.net/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/Base-ui-ng/base-ui/issues)  
 ♿ **Accessibility (ACR)**: [base-ui.net/accessibility](https://base-ui.net/accessibility) · `npm run test:a11y`  
 🖥️ **SSR-safe**: the docs site prerenders every catalog route, enforced by a blocking CI job · [how we verify it](https://base-ui.net/learn/angular-ssr-safe-component-library/)  
-🤖 **AI agents (MCP)**: [base-ui.net/getting-started#ai-agents-mcp](https://base-ui.net/getting-started#ai-agents-mcp) · `@lussos/base-ui-mcp` · [why copy-in UI works better with LLMs](https://base-ui.net/learn/why-llms-write-better-code-with-copy-in-ui/)  
+🤖 **AI agents (MCP)**: [base-ui.net/getting-started#ai-agents-mcp](https://base-ui.net/getting-started#ai-agents-mcp) · `base-ui-mcp` · [why copy-in UI works better with LLMs](https://base-ui.net/learn/why-llms-write-better-code-with-copy-in-ui/)  
 🎨 **Figma Design System**: [Figma Community File](https://www.figma.com/community/file/1662825988518656661)  
 ✨ **See what you can build for free**: [Live Admin Dashboard Demo](https://base-ui-free-dashboard-demo.pages.dev/app/dashboard) (Source code: [base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard))
 
@@ -149,7 +149,7 @@ no-ops outside a server render.
 
 For AI agents and LLM-assisted development:
 
-- **MCP server** — [`@lussos/base-ui-mcp`](https://www.npmjs.com/package/@lussos/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free tier, no license). Works with **Cursor**, **Claude** (Code/Desktop), **ChatGPT**, **Gemini**, **Kimi** (Kimi Code CLI), **VS Code** / GitHub Copilot, **Windsurf**, and other MCP hosts. Run `npx -y @lussos/base-ui-mcp` (stdio). Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
+- **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free tier, no license). Works with **Cursor**, **Claude** (Code/Desktop), **ChatGPT**, **Gemini**, **Kimi** (Kimi Code CLI), **VS Code** / GitHub Copilot, **Windsurf**, and other MCP hosts. Run `npx -y base-ui-mcp` (stdio). Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
 - **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, Angular signal forms).
 - **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add --yes` for agent use. Agent index: [llms.txt](https://base-ui.net/llms.txt).
