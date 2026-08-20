@@ -10,6 +10,13 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Other** — Isolate product-card hover so sibling cards in a row do not react.
+- **Other** — Add hover-open nested menubar menus and stay-open selectable items.
+- **Chores** — bump tailwind-merge to 3.6.0
+- **Other** — Point the product at the public GitHub hub and add community guardrails.
+- **Bug Fixes** — **cli:** keep fetch out of the published bin entry
+- **Features** — persist shareable demo themes and close flagship form/a11y gaps
+- **Bug Fixes** — **cli:** fetch the registry index once for diff and update
 - **Features** — add hover-card, menubar, loading-overlay, currency-input, kbd, aspect-ratio, scroll-area, and cookie-banner
 - **Features** — add labeled shell nav sections that collapse with the dashboard rail
 - **Bug Fixes** — keep hover-card open on panel click and correct menubar and currency input
@@ -20,6 +27,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 - **Features** — add combobox, tags-input, time-picker, and chat to the registry
 - **Bug Fixes** — **scroll-nav:** use one scrollport with a sticky sidebar
 - **Chores** — serve pro registry on pro.base-ui.net
+- **Chores** — remove @lussos package names
 - **Bug Fixes** — **breadcrumb:** truncate current crumb on one row
 - **Refactors** — **shell:** move backdrop logic inside main column for improved mobile handling
 - **Bug Fixes** — **app:** restore nested scroll on navigate and browser back
