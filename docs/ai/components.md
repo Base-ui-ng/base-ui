@@ -1746,9 +1746,19 @@ Styles a button or link as a context menu item (`role="menuitem"`).
 **Selector:** `base-dropdown-menu-item`
 **Standalone:** true
 
-An individual selectable item within a `base-dropdown-menu`. Automatically applies padding, hover states, and cursor styles.
+An individual item within a `base-dropdown-menu`. Clicking a normal item closes the menu. Bind `checked` (or set `stayOpen`) for selectable items that toggle without dismissing the dropdown.
 
-*No inputs or outputs.*
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | `''` | Extra host classes merged via `cn()`. |
+| stayOpen | `boolean` | `false` | Keep the dropdown open after this item is clicked. Implied when `checked` is bound. |
+| checked | `boolean \| undefined` | `undefined` | When set, renders as `menuitemcheckbox` and two-way toggles without closing the menu. |
+
+**Outputs:**
+| Name | Emit Type | Description |
+|------|-----------|-------------|
+| checkedChange | `boolean \| undefined` | Emitted when a checkbox item is toggled. |
 
 ---
 
@@ -2032,7 +2042,7 @@ Projected nav link for `base-responsive-nav`. Put the label and optional icon in
 **Selector:** `base-menubar`
 **Standalone:** true
 
-Horizontal application menubar. Project `base-menubar-menu` children; each menu opens a `base-dropdown-menu` of actions. Arrow Left/Right move between menus (and switch the open menu); Arrow Down / Enter / Space open; Escape closes. Hovering another trigger while a menu is open switches to it.
+Horizontal application menubar. Project `base-menubar-menu` children; each menu opens a `base-dropdown-menu` of actions. Click a top-level trigger to open the first menu; after that, hover switches menus and opens nested submenus. Click a leaf / link or outside to close. Bind `checked` (or `stayOpen`) on items that should toggle without dismissing the menu. Arrow Left/Right move between menus (and switch the open menu); Arrow Down / Enter / Space open; Escape closes.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -2045,7 +2055,7 @@ Horizontal application menubar. Project `base-menubar-menu` children; each menu 
 **Selector:** `base-menubar-menu`
 **Standalone:** true
 
-One top-level menu inside `base-menubar`. Project `base-dropdown-menu-item` (and optional nested menus) as children.
+One top-level menu inside `base-menubar`. Project `base-dropdown-menu-item` children, plus nested `base-dropdown-menu` panels on items that use `[base-dropdown-menu-trigger]` with `placement="right"` (or `left`).
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -3484,7 +3494,7 @@ A stylistic directive that applies monospace font and code-block styling to inli
 **Selector:** `[base-dropdown-menu-trigger]`
 **Standalone:** true
 
-A directive that attaches a `base-dropdown-menu` to a trigger element (like a button). Automatically handles overlay positioning, backdrop clicks, and detachment.
+A directive that attaches a `base-dropdown-menu` to a trigger element (like a button). Automatically handles overlay positioning, backdrop clicks, and detachment. Supports cascading submenus: put `[base-dropdown-menu-trigger]` on a menu item with `placement="right"` (or `left`). Nested menus open on hover once the parent cascade is open; leaf clicks and outside clicks close.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -3500,7 +3510,10 @@ A directive that attaches a `base-dropdown-menu` to a trigger element (like a bu
 
 A stylistic directive that applies standard padding, hover effects, and typography to an element to make it look like a dropdown menu item.
 
-*No inputs.*
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| stayOpen | `boolean` | `false` | Keep the dropdown open after this item is clicked. |
 
 ---
 
