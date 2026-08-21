@@ -10,6 +10,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Chores** — add angular-eslint so ng lint actually runs.
 - **Other** — Isolate product-card hover so sibling cards in a row do not react.
 - **Other** — Add hover-open nested menubar menus and stay-open selectable items.
 - **Chores** — **mcp:** bump zod to 4.4.3
