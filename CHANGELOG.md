@@ -10,7 +10,16 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Bug Fixes** — keep the disabled input separate from Angular Forms setDisabledState.
+- **Code Improvements** — share overlay positioning, enable strict templates, and type color unions.
+- **Bug Fixes** — use signals for template state so zoneless components actually update.
+- **Bug Fixes** — keep dialog width from numeric attributes instead of stretching full overlay.
+- **Bug Fixes** — restore missing icons and correct gallery, spinner, currency, and scheduler behavior.
+- **Code Improvements** — cancel component timers on destroy and drop leftover animation frames.
+- **Code Improvements** — apply complete Tailwind class names so badge, menu, and code styles generate.
 - **Chores** — add angular-eslint so ng lint actually runs.
+- **Chores** — mock localStorage in vitest for Node 25+.
+- **Code Improvements** — resolve CLI imports, overlay z-index, and component accessibility.
 - **Other** — Isolate product-card hover so sibling cards in a row do not react.
 - **Other** — Add hover-open nested menubar menus and stay-open selectable items.
 - **Chores** — **mcp:** bump zod to 4.4.3
