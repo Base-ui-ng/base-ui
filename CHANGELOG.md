@@ -10,6 +10,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Code Improvements** — use a stepper time picker and a two-step date+time flow.
 - **Bug Fixes** — keep the disabled input separate from Angular Forms setDisabledState.
 - **Code Improvements** — share overlay positioning, enable strict templates, and type color unions.
 - **Bug Fixes** — use signals for template state so zoneless components actually update.
