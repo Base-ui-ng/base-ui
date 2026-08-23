@@ -196,7 +196,7 @@ Yes. The free MCP server (npx -y base-ui-mcp) lets Cursor, Claude, ChatGPT, Gemi
 **What is the risk if Base UI disappears?**  
 Near zero. Installed code is in your version control with no runtime dependency; deleting the CLI changes nothing about your app.
 
-More: [https://base-ui.net/faq/](https://base-ui.net/faq/) · [https://base-ui.net/enterprise-faq/](https://base-ui.net/enterprise-faq/)
+More: [https://base-ui.net/faq/](https://base-ui.net/faq/) · [https://base-ui.net/enterprise-faq/](https://base-ui.net/enterprise-faq/) · [https://base-ui.net/compare/](https://base-ui.net/compare/)
 <!-- answer-bank-faq:end -->
 
 ## 📄 License
