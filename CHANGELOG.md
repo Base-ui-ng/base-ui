@@ -1,6 +1,6 @@
 # Changelog
 
-Library, CLI, and MCP updates for [Base UI](https://base-ui.net) — free and Pro components,
+Library, CLI, and MCP updates for [Base UI (Angular)](https://base-ui.net) — free and Pro components,
 generated from conventional commits that touch `projects/base/src`, `packages/cli/src`,
 `packages/mcp/src`, or `server/pro-registry`.
 
@@ -11,6 +11,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 ## August 2026
 
 - **Code Improvements** — use a stepper time picker and a two-step date+time flow.
+- **Other** — command palette UI improvements
 - **Bug Fixes** — keep the disabled input separate from Angular Forms setDisabledState.
 - **Code Improvements** — share overlay positioning, enable strict templates, and type color unions.
 - **Bug Fixes** — use signals for template state so zoneless components actually update.
