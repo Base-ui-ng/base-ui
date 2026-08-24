@@ -10,6 +10,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Bug Fixes** — restore smooth shell drawers and polish docs styling.
 - **Bug Fixes** — bind toggle ariaLabel in the axe smoke host and settings layout.
 - **Bug Fixes** — raise AA contrast on badges and active nav, and bind toggle ariaLabel.
 - **Bug Fixes** — keep the mobile shell backdrop transparent.
