@@ -12,6 +12,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 - **Bug Fixes** — bind toggle ariaLabel in the axe smoke host and settings layout.
 - **Bug Fixes** — raise AA contrast on badges and active nav, and bind toggle ariaLabel.
+- **Bug Fixes** — keep the mobile shell backdrop transparent.
 - **Bug Fixes** — clear ESLint errors and warnings in app and library.
 - **Bug Fixes** — align button-group specs with valueChange and ToggleGroupButton.
 - **Bug Fixes** — type CVA callbacks as void so library compile succeeds.
