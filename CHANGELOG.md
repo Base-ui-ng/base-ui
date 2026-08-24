@@ -10,6 +10,9 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## August 2026
 
+- **Bug Fixes** — clear ESLint errors and warnings in app and library.
+- **Bug Fixes** — align button-group specs with valueChange and ToggleGroupButton.
+- **Bug Fixes** — type CVA callbacks as void so library compile succeeds.
 - **Code Improvements** — use a stepper time picker and a two-step date+time flow.
 - **Other** — command palette UI improvements
 - **Bug Fixes** — keep the disabled input separate from Angular Forms setDisabledState.
