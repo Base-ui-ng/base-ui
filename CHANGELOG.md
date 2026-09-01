@@ -8,8 +8,14 @@ Demo-site, SEO, analytics, and AI-doc tooling commits are omitted.
 
 Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog).
 
+## September 2026
+
+- **Features** — **library:** add a Linear-style workspace inbox layout
+
 ## August 2026
 
+- **Bug Fixes** — convert leftover component CSS to Tailwind and make disabled controls inert.
+- **Bug Fixes** — align radio labels and put identity copy on Open Graph tags.
 - **Bug Fixes** — disambiguate Base UI (Angular) in schema and allow Claude search bots.
 - **Bug Fixes** — restore smooth shell drawers and polish docs styling.
 - **Bug Fixes** — bind toggle ariaLabel in the axe smoke host and settings layout.
