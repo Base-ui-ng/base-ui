@@ -10,6 +10,8 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## September 2026
 
+- **Features** — **library:** bind layout-kanban-board to a parent store
+- **Bug Fixes** — use an interface for the workspace inbox spec helper.
 - **Features** — **library:** add a Linear-style workspace inbox layout
 
 ## August 2026
