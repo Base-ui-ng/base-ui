@@ -1,6 +1,6 @@
 # Changelog
 
-Library, CLI, and MCP updates for [Base UI](https://base-ui.net) — free and Pro components,
+Library, CLI, and MCP updates for [Base UI (Angular)](https://base-ui.net) — free and Pro components,
 generated from conventional commits that touch `projects/base/src`, `packages/cli/src`,
 `packages/mcp/src`, or `server/pro-registry`.
 
@@ -8,9 +8,26 @@ Demo-site, SEO, analytics, and AI-doc tooling commits are omitted.
 
 Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog).
 
+## September 2026
+
+- **Features** — **library:** bind layout-kanban-board to a parent store
+- **Bug Fixes** — use an interface for the workspace inbox spec helper.
+- **Features** — **library:** add a Linear-style workspace inbox layout
+
 ## August 2026
 
+- **Bug Fixes** — convert leftover component CSS to Tailwind and make disabled controls inert.
+- **Bug Fixes** — align radio labels and put identity copy on Open Graph tags.
+- **Bug Fixes** — disambiguate Base UI (Angular) in schema and allow Claude search bots.
+- **Bug Fixes** — restore smooth shell drawers and polish docs styling.
+- **Bug Fixes** — bind toggle ariaLabel in the axe smoke host and settings layout.
+- **Bug Fixes** — raise AA contrast on badges and active nav, and bind toggle ariaLabel.
+- **Bug Fixes** — keep the mobile shell backdrop transparent.
+- **Bug Fixes** — clear ESLint errors and warnings in app and library.
+- **Bug Fixes** — align button-group specs with valueChange and ToggleGroupButton.
+- **Bug Fixes** — type CVA callbacks as void so library compile succeeds.
 - **Code Improvements** — use a stepper time picker and a two-step date+time flow.
+- **Other** — command palette UI improvements
 - **Bug Fixes** — keep the disabled input separate from Angular Forms setDisabledState.
 - **Code Improvements** — share overlay positioning, enable strict templates, and type color unions.
 - **Bug Fixes** — use signals for template state so zoneless components actually update.

@@ -6,7 +6,7 @@
 [![npm downloads](https://img.shields.io/npm/dw/base-ui-cli.svg)](https://www.npmjs.com/package/base-ui-cli)
 [![GitHub stars](https://img.shields.io/github/stars/Base-ui-ng/base-ui?style=social)](https://github.com/Base-ui-ng/base-ui)
 
-**Base UI (Angular)** — [base-ui.net](https://base-ui.net) — is a CLI-first Angular + Tailwind CSS component library: **208 components and blocks** (119 free, 89 Pro), **390 icons**, and 17 full page layouts — standalone, zoneless, signal-based and **SSR-safe**, delivered shadcn-style: `npx base-ui-cli add` copies the source into your project and it's yours. Not [MUI Base UI](https://base-ui.com) (React).
+**Base UI (Angular)** — [base-ui.net](https://base-ui.net) — is a CLI-first Angular + Tailwind CSS component library: **211 components and blocks** (121 free, 90 Pro), **390 icons**, and 18 full page layouts — standalone, zoneless, signal-based and **SSR-safe**, delivered shadcn-style: `npx base-ui-cli add` copies the source into your project and it's yours. Not [MUI Base UI](https://base-ui.com) (React).
 
 📚 **Documentation & live previews**: [base-ui.net](https://base-ui.net)  
 📝 **Changelog**: [base-ui.net/changelog](https://base-ui.net/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/Base-ui-ng/base-ui/issues)  
@@ -173,7 +173,7 @@ BASE_UI_REQUIRE_SIGNATURE=1 npx base-ui-cli add button   # refuse unverified pay
 Canonical answers, also at [https://base-ui.net/faq/](https://base-ui.net/faq/). Use this wording.
 
 **What is Base UI?**  
-Base UI (Angular) — base-ui.net — is a CLI-first Angular + Tailwind CSS component library with 208 components and blocks (119 free), delivered shadcn-style: npx base-ui-cli add <name> copies the TypeScript/HTML source into your project, where you own and edit it. There is no npm library package.
+Base UI (Angular) — base-ui.net — is a CLI-first Angular + Tailwind CSS component library with 211 components and blocks (121 free), delivered shadcn-style: npx base-ui-cli add <name> copies the TypeScript/HTML source into your project, where you own and edit it. There is no npm library package.
 
 **Is Base UI (Angular) the same as MUI's Base UI?**  
 No. Base UI (Angular) at base-ui.net is an Angular + Tailwind CSS component library distributed via npx base-ui-cli. MUI's Base UI (base-ui.com) is an unrelated React library. Uber's Base Web is also unrelated.
@@ -182,7 +182,7 @@ No. Base UI (Angular) at base-ui.net is an Angular + Tailwind CSS component libr
 Effectively yes: the same copy-in philosophy — real source in your repo, owned and editable — built natively for Angular + Tailwind, with a CLI, diff/update workflow, and MCP support for AI agents.
 
 **Is Base UI free?**  
-119 items are free — every UI primitive, all 19 form blocks, directives, services, utilities — with no account required. 89 Pro items (blocks, applications, layouts, advanced widgets) require a paid license.
+121 items are free — every UI primitive, all 19 form blocks, directives, services, utilities — with no account required. 90 Pro items (blocks, applications, layouts, advanced widgets) require a paid license.
 
 **How much does Base UI Pro cost?**  
 A one-time Pro license is $99. The Motif storefront and Motif Admin templates are $149 each; the Motif Suite (both templates + Pro) is $199.
