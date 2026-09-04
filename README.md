@@ -20,7 +20,7 @@
 
 ## 🚀 Quick Start (Free Tier)
 
-The free tier is production-ready with no account or license: **all primitives** (buttons, cards, dialogs, hover cards, menubars, inputs, currency fields, selects, tabs, toasts, tooltips, and more) plus **all 19 form blocks** (login, signup, checkout, billing, wizard, …).
+The free tier is production-ready with no account or license: **all primitives** (buttons, cards, dialogs, hover cards, menubars, inputs, currency fields, selects, tabs, stacked toasts, tooltips, and more) plus **all 19 form blocks** (login, signup, checkout, billing, wizard, …).
 
 ### 1. Initialize your project
 
@@ -114,7 +114,7 @@ Templates are complete, production-grade applications built on Pro — every rou
 
 | Category | Free | Pro |
 | --- | --- | --- |
-| **UI primitives** | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
+| **UI primitives** | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, stacked toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
 | **Form blocks** | all 19 (login, signup, checkout, billing, wizard, …) | — |
 | **Blocks & widgets** | — | blog/article cards, ecommerce blocks, media + social widgets |
 | **Page layouts** | — | 15 (dashboard, kanban, inbox, docs, admin table, …) |

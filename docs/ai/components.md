@@ -1996,7 +1996,7 @@ Fixed consent banner. Hidden until the client confirms `localStorage` has no sto
 **Selector:** `base-toast-container`
 **Standalone:** true
 
-Toast renderer used programmatically by `ToastService` — you normally never place this selector yourself. The service creates one container attached to `document.body` (with `aria-live="polite"`), and the component groups active toasts by position (`top-right`, `top-left`, `top-center`, `bottom-right`, `bottom-left`, `bottom-center`), rendering each as a colored, bordered card with an icon, message, and dismiss button, animating out over 300ms. State is held in a `toasts` signal with `addToast`/`removeToast`/`cleanToast`/`dismissToast` methods called by the service. No inputs or outputs.
+Toast renderer used programmatically by `ToastService` — you normally never place this selector yourself. The service creates one container attached to `document.body` (with `aria-live="polite"`), and the component groups active toasts by position (`top-right`, `top-left`, `top-center`, `bottom-right`, `bottom-left`, `bottom-center`). Newest toasts sit in front; older ones peek behind (up to three visible). Hover or keyboard focus expands the stack; swipe toward the nearest edge dismisses; hovering pauses auto-dismiss. `prefers-reduced-motion` renders a static list with no scale or swipe tween. State is held in a `toasts` signal with `addToast`/`dismissById`/`dismissAll` methods called by the service. No inputs or outputs.
 
 Use via `ToastService` (documented under Services): `show(message, { color, duration, icon, position, action })` plus `success`/`error`/`warning`/`info` shorthands, `promise(promiseOrFn, { loading, success, error })`, `dismiss(id)`, and `clearAll()`. Duration defaults to 4000ms; `duration: 0` keeps a toast until dismissed. `action` is `{ label, onClick, dismiss? }` and renders an inline button (Undo-style).
 
@@ -3798,7 +3798,7 @@ A service for dynamically rendering and managing dialogs/modals. SSR-safe: `open
 ### ToastService
 **`providedIn: 'root'`**
 
-Imperative toast API. Mounts a live region on first use — do not place `base-toast-container` in templates. Inject with `inject(ToastService)`; do not add the service to `imports`. SSR-safe: skips DOM work off the browser and creates/appends the host via injected `DOCUMENT`.
+Imperative stacked toast API with expandable deck, swipe-to-dismiss, hover pause, and a reduced-motion static list. SSR-safe: skips DOM work off the browser and creates/appends the host via injected `DOCUMENT`. Do not place `base-toast-container` in templates. Inject with `inject(ToastService)`; do not add the service to `imports`.
 
 **Methods:**
 - `show(message: string, config?: ToastConfig): number` — Shows a toast and returns its id. `duration` defaults to 4000ms; `duration: 0` keeps it until dismissed.
