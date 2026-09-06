@@ -53,7 +53,7 @@ Components use standard Tailwind spacing (e.g. `p-4`) and standard colors (`blue
 }
 ```
 
-Use the demo app's theme customizer to export a full 50–950 scale. Brand, radius, background, font, and density persist in the demo (`localStorage`) and can be shared with `?theme=violet&radius=0.75&bg=zinc&font=inter&density=compact`.
+Use [Theme Studio](https://base-ui.net/theme/) (or the docs customizer) to export a full 50–950 scale as a Tailwind v4 `@theme` block. Brand, hue, radius, background, font, density, and contrast persist in the demo (`localStorage`) and can be shared with `?theme=nord&radius=0.75&bg=zinc&font=inter&density=compact`.
 
 ### 3. Add components
 
@@ -151,7 +151,7 @@ For AI agents and LLM-assisted development:
 
 - **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free tier, no license). Works with **Cursor**, **Claude** (Code/Desktop), **ChatGPT**, **Gemini**, **Kimi** (Kimi Code CLI), **VS Code** / GitHub Copilot, **Windsurf**, and other MCP hosts. Run `npx -y base-ui-mcp` (stdio). Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
-- **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, Angular signal forms).
+- **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
 - **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add --yes` for agent use. Agent index: [llms.txt](https://base-ui.net/llms.txt).
 
 ## 🔐 Security & vendor risk
