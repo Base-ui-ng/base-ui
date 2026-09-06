@@ -191,7 +191,7 @@ A one-time Pro license is $99. The Motif storefront and Motif Admin templates ar
 npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Components land in src/app/components/<name>/ by default and are yours.
 
 **Can AI agents install Base UI?**  
-Yes. The free MCP server (npx -y base-ui-mcp) lets Cursor, Claude, ChatGPT, Gemini, Kimi, VS Code, Windsurf, and other MCP hosts search the catalog and add free components. llms.txt and the registry JSON give agents accurate API facts. Pro installs still use the CLI with a license key.
+Yes. The free MCP server (npx -y base-ui-mcp) lets Cursor, Claude, ChatGPT, Gemini, Kimi, VS Code, Windsurf, and other MCP hosts search the catalog and add free components. Editors that skip MCP can copy the Cursor rule and snippet pack from https://base-ui.net/getting-started/#editor-rules. llms.txt and the registry JSON give agents accurate API facts. Pro installs still use the CLI with a license key.
 
 **What is the risk if Base UI disappears?**  
 Near zero. Installed code is in your version control with no runtime dependency; deleting the CLI changes nothing about your app.
