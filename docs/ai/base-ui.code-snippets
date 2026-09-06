@@ -1,0 +1,239 @@
+{
+  "Base UI card": {
+    "prefix": "base-card",
+    "scope": "html",
+    "body": [
+      "<base-card>",
+      "  <base-card-header class=\"flex items-center justify-between gap-[8px]\">",
+      "    <h2 class=\"m-0! text-base font-semibold text-slate-900 dark:text-white\">${1:Title}</h2>",
+      "  </base-card-header>",
+      "  <base-card-body class=\"p-[16px]\">",
+      "    $0",
+      "  </base-card-body>",
+      "</base-card>"
+    ],
+    "description": "Base UI card usage. Install: npx base-ui-cli add card --yes"
+  },
+  "Base UI button": {
+    "prefix": "base-button",
+    "scope": "html",
+    "body": [
+      "<button type=\"button\" base-button color=\"${1:primary}\">${2:Save}</button>"
+    ],
+    "description": "Base UI filled button directive. Install: npx base-ui-cli add button --yes"
+  },
+  "Base UI stroked button": {
+    "prefix": "base-stroked-button",
+    "scope": "html",
+    "body": [
+      "<button type=\"button\" base-stroked-button color=\"${1:default}\">${2:Cancel}</button>"
+    ],
+    "description": "Base UI stroked button directive. Install: npx base-ui-cli add button --yes"
+  },
+  "Base UI dialog open": {
+    "prefix": "base-dialog",
+    "scope": "typescript",
+    "body": [
+      "this.dialog.open(${1:MyDialogComponent}).subscribe((result) => {",
+      "  if (!result) return;",
+      "  $0",
+      "});"
+    ],
+    "description": "Open a Base UI dialog. Install: npx base-ui-cli add dialog --yes"
+  },
+  "Base UI input group": {
+    "prefix": "base-input",
+    "scope": "html",
+    "body": [
+      "<base-input-group>",
+      "  <base-label>${1:Label}</base-label>",
+      "  <input base-input [(ngModel)]=\"${2:value}\" autocomplete=\"off\" />",
+      "</base-input-group>"
+    ],
+    "description": "Native input with base-input. Install: npx base-ui-cli add input --yes"
+  },
+  "Base UI textarea": {
+    "prefix": "base-textarea",
+    "scope": "html",
+    "body": [
+      "<base-input-group>",
+      "  <base-label>${1:Notes}</base-label>",
+      "  <textarea base-textarea rows=\"4\" [(ngModel)]=\"${2:notes}\"></textarea>",
+      "</base-input-group>"
+    ],
+    "description": "Native textarea with base-textarea. Install: npx base-ui-cli add input --yes"
+  },
+  "Base UI combobox": {
+    "prefix": "base-combobox",
+    "scope": "html",
+    "body": [
+      "<base-combobox",
+      "  label=\"${1:Choice}\"",
+      "  [options]=\"${2:options}\"",
+      "  [(ngModel)]=\"${3:value}\">",
+      "</base-combobox>"
+    ],
+    "description": "Searchable select. Bind ngModel on the host. Install: npx base-ui-cli add combobox --yes"
+  },
+  "Base UI select": {
+    "prefix": "base-select",
+    "scope": "html",
+    "body": [
+      "<base-custom-select",
+      "  label=\"${1:Choice}\"",
+      "  [options]=\"${2:options}\"",
+      "  [(ngModel)]=\"${3:value}\">",
+      "</base-custom-select>"
+    ],
+    "description": "Custom select CVA host. Install: npx base-ui-cli add custom-select --yes"
+  },
+  "Base UI toggle": {
+    "prefix": "base-toggle",
+    "scope": "html",
+    "body": [
+      "<div class=\"flex items-center justify-between gap-[12px] rounded-lg border border-slate-200 px-[16px] py-[12px] dark:border-slate-700\">",
+      "  <div>",
+      "    <p class=\"m-0! text-sm font-medium text-slate-900 dark:text-white\">${1:Product emails}</p>",
+      "    <p class=\"mb-0! mt-[2px] text-xs text-slate-500\">${2:Occasional tips.}</p>",
+      "  </div>",
+      "  <base-toggle [(ngModel)]=\"${3:enabled}\"></base-toggle>",
+      "</div>"
+    ],
+    "description": "Toggle CVA host. Install: npx base-ui-cli add toggle --yes"
+  },
+  "Base UI tags input": {
+    "prefix": "base-tags-input",
+    "scope": "html",
+    "body": [
+      "<base-label>${1:Tags}</base-label>",
+      "<base-tags-input class=\"mt-[4px]\" [(ngModel)]=\"${2:tags}\" placeholder=\"${3:Add a tag…}\"></base-tags-input>"
+    ],
+    "description": "Chip tags CVA host. Install: npx base-ui-cli add tags-input --yes"
+  },
+  "Base UI checkbox": {
+    "prefix": "base-checkbox",
+    "scope": "html",
+    "body": [
+      "<base-checkbox [(ngModel)]=\"${1:checked}\">${2:Remember me}</base-checkbox>"
+    ],
+    "description": "Checkbox. Install: npx base-ui-cli add checkbox --yes"
+  },
+  "Base UI chat": {
+    "prefix": "base-chat",
+    "scope": "html",
+    "body": [
+      "<base-chat",
+      "  [messages]=\"${1:messages}()\"",
+      "  [streaming]=\"${2:streaming}()\"",
+      "  placeholder=\"${3:Ask…}\"",
+      "  (send)=\"${4:onSend}($event)\"",
+      "  (stop)=\"${5:stop}()\">",
+      "</base-chat>"
+    ],
+    "description": "AI chat kit. Install: npx base-ui-cli add chat --yes"
+  },
+  "Base UI data table": {
+    "prefix": "base-data-table",
+    "scope": "html",
+    "body": [
+      "<base-data-table",
+      "  [columns]=\"${1:columns}\"",
+      "  [data]=\"${2:rows}\"",
+      "  [loading]=\"${3:loading}()\"",
+      "  serverSide",
+      "  sortable",
+      "  pageable",
+      "  selectable",
+      "  bordered",
+      "  hoverable",
+      "  [pageSize]=\"${4:10}\"",
+      "  [totalItems]=\"${5:total}\"",
+      "  [(selected)]=\"${6:selected}\"",
+      "  (pageChange)=\"${7:fetch}($event)\"",
+      "  (sortChange)=\"${8:onSort}($event)\">",
+      "</base-data-table>"
+    ],
+    "description": "Pro data table. Install: npx base-ui-cli add data-table --yes"
+  },
+  "Base UI tabs": {
+    "prefix": "base-tabs",
+    "scope": "html",
+    "body": [
+      "<base-tabs [defaultTab]=\"${1:0}\">",
+      "  <base-tab label=\"${2:Overview}\"><base-tab-body>$0</base-tab-body></base-tab>",
+      "  <base-tab label=\"${3:Activity}\"><base-tab-body></base-tab-body></base-tab>",
+      "</base-tabs>"
+    ],
+    "description": "Tabs. Install: npx base-ui-cli add tabs --yes"
+  },
+  "Base UI alert": {
+    "prefix": "base-alert",
+    "scope": "html",
+    "body": [
+      "<base-alert color=\"${1:info}\">${2:Saved.}</base-alert>"
+    ],
+    "description": "Alert. Install: npx base-ui-cli add alert --yes"
+  },
+  "Base UI badge": {
+    "prefix": "base-badge",
+    "scope": "html",
+    "body": [
+      "<base-badge color=\"${1:primary-light}\" size=\"sm\">${2:New}</base-badge>"
+    ],
+    "description": "Badge. Install: npx base-ui-cli add badge --yes"
+  },
+  "Base UI skeleton": {
+    "prefix": "base-skeleton",
+    "scope": "html",
+    "body": [
+      "<base-skeleton variant=\"${1:rectangular}\" width=\"${2:100%}\" height=\"${3:16rem}\"></base-skeleton>"
+    ],
+    "description": "Skeleton placeholder. Install: npx base-ui-cli add skeleton --yes"
+  },
+  "Base UI empty state": {
+    "prefix": "base-empty-state",
+    "scope": "html",
+    "body": [
+      "<base-empty-state title=\"${1:Nothing here}\" description=\"${2:Try a different filter.}\"></base-empty-state>"
+    ],
+    "description": "Empty state. Install: npx base-ui-cli add empty-state --yes"
+  },
+  "Base UI toast": {
+    "prefix": "base-toast",
+    "scope": "typescript",
+    "body": [
+      "this.toast.success('${1:Saved}', { duration: ${2:2500} });"
+    ],
+    "description": "Toast via ToastService. Install: npx base-ui-cli add toast --yes. Do not add base-toast-container to templates."
+  },
+  "Base UI icon": {
+    "prefix": "base-icon",
+    "scope": "html",
+    "body": [
+      "<base-icon name=\"${1:chevron-right}\" class=\"h-4 w-4 stroke-slate-500 dark:stroke-slate-300\"></base-icon>"
+    ],
+    "description": "Outline icon (stroke-*). Filled: [filled]=\"true\" + text-*. Install: npx base-ui-cli add icon --yes"
+  },
+  "Base UI standalone component": {
+    "prefix": "base-standalone",
+    "scope": "typescript",
+    "body": [
+      "import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: 'app-${1:feature}',",
+      "  changeDetection: ChangeDetectionStrategy.OnPush,",
+      "  template: `",
+      "    <base-card>",
+      "      <base-card-body class=\"p-[16px]\">$0</base-card-body>",
+      "    </base-card>",
+      "  `,",
+      "})",
+      "export class ${2:Feature}Component {",
+      "  readonly title = input('${3:Title}');",
+      "  readonly saved = output<void>();",
+      "}"
+    ],
+    "description": "Standalone OnPush component with signal input/output and a Base UI card"
+  }
+}

@@ -151,6 +151,7 @@ For AI agents and LLM-assisted development:
 
 - **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free tier, no license). Works with **Cursor**, **Claude** (Code/Desktop), **ChatGPT**, **Gemini**, **Kimi** (Kimi Code CLI), **VS Code** / GitHub Copilot, **Windsurf**, and other MCP hosts. Run `npx -y base-ui-mcp` (stdio). Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
+- **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://base-ui.net/getting-started/#editor-rules), or `npx base-ui-cli init` writes them when missing.
 - **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
 - **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add --yes` for agent use. Agent index: [llms.txt](https://base-ui.net/llms.txt).
 

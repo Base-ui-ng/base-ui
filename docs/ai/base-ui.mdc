@@ -1,0 +1,52 @@
+---
+description: Base UI (Angular) — standalone, zoneless, Tailwind v4 copy-in components
+alwaysApply: true
+---
+
+# Base UI (Angular) coding rules
+
+You are generating Angular for a project that uses **Base UI (Angular)** at https://base-ui.net — copy-in components, not an npm UI kit. Not MUI Base UI (React).
+
+## Install, don't invent
+
+- Install with `npx base-ui-cli add <name> --yes`. Source lands in `src/app/components/<name>/`.
+- Import from that local path. Never `from 'base-ui'` / `@base-ui/*`.
+- Prefer an existing registry item over a custom control. Check `npx base-ui-cli list`, https://base-ui.net/llms.txt, or MCP (`npx -y base-ui-mcp`) before building a dialog, table, combobox, or form control.
+- Free items need no license. Pro items need `BASE_UI_LICENSE_KEY` — do not scrape keys or paste Pro source from memory.
+
+## Angular 22 shape
+
+- New components: `standalone: true`, `changeDetection: ChangeDetectionStrategy.OnPush`.
+- Public APIs: `input()`, `output()`, `model()` — not `@Input()` / `@Output()`.
+- Templates: `@if` / `@for` / `@empty` — not `*ngIf` / `*ngFor`.
+- Prefer zoneless. Do not add `zone.js`. After async work, write to signals (or signal-backed CVA) so the view updates without Zone.
+- App selectors stay `app-`. Only Base UI selectors use the `base-` prefix.
+
+## Selectors and forms
+
+- Components: `<base-card>`, `<base-dialog>` is not a tag — open modals with `inject(DialogService).open(MyComponent)`.
+- Directives: `[base-button]`, `[base-stroked-button]`, `[base-input]`, `[base-textarea]`.
+- Native fields: `<input base-input [(ngModel)]="…">` or Angular 22 `[formField]` + `base-input`.
+- CVA hosts (`base-combobox`, `base-tags-input`, `base-toggle`, `base-custom-select`, `base-file-upload`, `base-mention-input`) bind `[(ngModel)]` / `[formField]` on the host, not on an inner native input.
+- Do not nest composite controls inside `base-input-group` — only `[base-input]`, `[base-textarea]`, and `base-mention-input` are projected.
+
+## Tailwind v4
+
+- Style with utilities. Pair light and `dark:` variants (`bg-white dark:bg-slate-800`). Dark mode is the `dark` class on `<html>`.
+- Prefer pixel arbitrary values in new UI (`p-[16px]`, `gap-[8px]`) so spacing does not depend on a custom theme.
+- `color="primary"` is Tailwind `blue-*`. Override `--color-blue-500` to rebrand; do not introduce a parallel token set.
+- If a host class override loses to the component's base utilities, use Tailwind v4 important (`absolute!`, `rounded-full!`).
+- `<base-icon>` outlines: `stroke-*`. Filled icons: `[filled]="true"` and `text-*` / `fill-*`.
+
+## Async, overlays, SSR
+
+- `DialogService.open()` is a no-op during SSR. Toast and dialog hosts append via `DOCUMENT`.
+- Drawers need `provideAnimationsAsync()`.
+- Close popovers/drawers yourself on in-panel navigation (`popover.close()`, `drawer.closed.emit()`).
+- Do not put `base-toast-container` in templates; the toast service owns the overlay.
+
+## Agents
+
+- MCP optional: `.cursor/mcp.json` → `npx -y base-ui-mcp` with `BASE_UI_CWD` = this app root.
+- Facts: https://base-ui.net/llms.txt · catalog: https://base-ui.net/docs/ai/components.md
+- Usage snippets (VS Code / Cursor): `.vscode/base-ui.code-snippets` — expand prefixes like `base-card` after the CLI has copied the component in.
