@@ -1969,7 +1969,7 @@ Blocks a region (or the viewport) with `base-spinner` while work is in progress.
 **Selector:** `base-cookie-banner`
 **Standalone:** true
 
-Fixed consent banner. Hidden until the client confirms `localStorage` has no stored choice (`afterNextRender`, SSR-safe). Accept / Reject persist `'accepted'` or `'rejected'` under `storageKey` and emit. Call `reset()` to clear storage and show the banner again.
+Consent banner. Fixed to the viewport by default; pass `inline` to render in document flow (docs/demo surfaces). Hidden until the client confirms `localStorage` has no stored choice (`afterNextRender`, SSR-safe). Accept / Reject persist `'accepted'` or `'rejected'` under `storageKey` and emit. Call `reset()` to clear storage and show the banner again.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -1982,6 +1982,7 @@ Fixed consent banner. Hidden until the client confirms `localStorage` has no sto
 | rejectLabel | `string` | 'Reject' | Label for the reject button. |
 | policyHref | `string` | '' | Optional privacy policy URL. Hidden when empty. |
 | policyLabel | `string` | 'Privacy policy' | Label for the privacy policy link. |
+| inline | `boolean` | false | Render in document flow instead of pinning to the viewport. |
 
 **Outputs:**
 | Name | Payload | Description |
