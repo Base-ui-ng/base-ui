@@ -11,6 +11,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 ## September 2026
 
 - **Features** — **cli:** add doctor command to verify project setup
+- **Features** — **cli:** pick from the catalog when add has no names
 - **Features** — **docs:** add Preview/Code demos and live playgrounds.
 - **Features** — add Theme Studio so teams can export a Tailwind v4 @theme block.
 - **Features** — ship Cursor rules, usage snippets, and StackBlitz on cookbooks and blocks.
