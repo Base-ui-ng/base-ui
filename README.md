@@ -61,6 +61,8 @@ Use [Theme Studio](https://base-ui.net/theme/) (or the docs customizer) to expor
 npx base-ui-cli add button card dialog
 ```
 
+Omit the name (`npx base-ui-cli add`) in a terminal to pick from the catalog. Pass names plus `--yes` in CI and for agents.
+
 Component dependencies are resolved recursively, and missing npm packages are installed with your package manager automatically. Run `npx base-ui-cli list` to see everything that's available.
 
 If a component looks unstyled or icons are missing, `npx base-ui-cli doctor` checks `base-ui.json`, Tailwind, CDK, and the icon sprites (read-only). Later, `npx base-ui-cli diff` shows what's changed upstream for components you've already installed, and `npx base-ui-cli update` pulls those changes in — automatically for files you haven't touched, interactively (keep / take upstream / save side-by-side) for anything you've customized that also changed upstream. See [`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli) for details.
@@ -153,7 +155,7 @@ For AI agents and LLM-assisted development:
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
 - **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://base-ui.net/getting-started/#editor-rules), or `npx base-ui-cli init` writes them when missing.
 - **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
-- **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add --yes` for agent use. `npx base-ui-cli doctor` is the read-only setup check. Agent index: [llms.txt](https://base-ui.net/llms.txt).
+- **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add <name> --yes` for agent use. Bare `add` (no names) is an interactive catalog picker. `npx base-ui-cli doctor` is the read-only setup check. Agent index: [llms.txt](https://base-ui.net/llms.txt).
 
 ## 🔐 Security & vendor risk
 
@@ -189,7 +191,7 @@ Effectively yes: the same copy-in philosophy — real source in your repo, owned
 A one-time Pro license is $99. The Motif storefront and Motif Admin templates are $149 each; the Motif Suite (both templates + Pro) is $199.
 
 **How do I install a component?**  
-npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Components land in src/app/components/<name>/ by default and are yours.
+npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Omit the name in a terminal to pick from the catalog (filter, then type to select). --yes and CI need explicit names. Components land in src/app/components/<name>/ by default and are yours.
 
 **How do I verify my Base UI setup?**  
 Run npx base-ui-cli doctor. It checks base-ui.json, the Angular workspace, @angular/cdk, Tailwind v4 @source paths, the base-ui.css import, icon sprites, and the components directory — read-only, nothing is written.
