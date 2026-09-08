@@ -10,7 +10,12 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## September 2026
 
-- **Features** — **library:** bind layout-kanban-board to a parent store
+- **Features** — add Theme Studio so teams can export a Tailwind v4 @theme block.
+- **Features** — ship Cursor rules, usage snippets, and StackBlitz on cookbooks and blocks.
+- **Documentation** — add Angular 22 cookbooks for signal forms, httpResource, @defer, and view transitions.
+- **Bug Fixes** — use const for toast swipe offset
+- **Features** — **toast:** Stack toasts like a deck: hover or focus expands, swipe dismisses, hover pauses auto-dismiss, and prefers-reduced-motion falls back to a static list.
+- **Other** — Bind layout-kanban-board to a parent store (#108)
 - **Bug Fixes** — use an interface for the workspace inbox spec helper.
 - **Features** — **library:** add a Linear-style workspace inbox layout
 
