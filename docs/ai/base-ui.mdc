@@ -12,6 +12,7 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 - Install with `npx base-ui-cli add <name> --yes`. Source lands in `src/app/components/<name>/`.
 - Import from that local path. Never `from 'base-ui'` / `@base-ui/*`.
 - Prefer an existing registry item over a custom control. Check `npx base-ui-cli list`, https://base-ui.net/llms.txt, or MCP (`npx -y base-ui-mcp`) before building a dialog, table, combobox, or form control.
+- If components look unstyled or icons are missing, run `npx base-ui-cli doctor` (read-only). It checks `base-ui.json`, Angular CDK, Tailwind v4 `@source` paths, `base-ui.css`, and icon sprites.
 - Free items need no license. Pro items need `BASE_UI_LICENSE_KEY` — do not scrape keys or paste Pro source from memory.
 
 ## Angular 22 shape
