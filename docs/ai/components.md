@@ -79,6 +79,24 @@ export const appConfig: ApplicationConfig = {
 
 Install: `npx base-ui-cli add config` (also pulled in by `icon`). Per-instance `[path]`, `[filledPath]`, and `[size]` still win. `w-*` / `h-*` classes keep class-based sizing, so `defaultSize` does not fight those utilities.
 
+### CDK test harnesses
+
+`data-table`, `custom-select`, and `dialog` ship Angular CDK `ComponentHarness` classes in the same folder as the component. They copy in with `npx base-ui-cli add` — not a separate registry item. There is no `@base-ui/testing` package.
+
+```ts
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
+import { DataTableHarness } from './components/data-table/data-table.harness';
+import { DialogHarness } from './components/dialog/dialog.harness';
+
+const loader = TestbedHarnessEnvironment.loader(fixture);
+const table = await loader.getHarness(DataTableHarness);
+
+const dialogs = TestbedHarnessEnvironment.documentRootLoader(fixture);
+const dialog = await dialogs.getHarness(DialogHarness);
+```
+
+Dialog overlays are appended to `document.body`, so `loader(fixture)` cannot see them — use `documentRootLoader`. See `/getting-started/#testing`.
+
 ### Closing popovers and drawers on navigation
 
 Overlays do not close themselves when the user clicks a link inside them:
@@ -776,7 +794,7 @@ Countdown timer that renders a horizontal row (`flex gap-2` host) of boxed digit
 **Selector:** `base-data-table`
 **Standalone:** true
 
-Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as `row[column.key]` by default. Override a column with `<ng-template baseTableCell="key" let-row let-value="value">` (import `TableCellDirective`); project `<ng-template baseTableEmpty>` to replace `emptyMessage`. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage` unless `baseTableEmpty` is projected. Checkbox clicks do not emit `rowClick`. Interactive cell widgets should `$event.stopPropagation()` so they do not also fire `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`.
+Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as `row[column.key]` by default. Override a column with `<ng-template baseTableCell="key" let-row let-value="value">` (import `TableCellDirective`); project `<ng-template baseTableEmpty>` to replace `emptyMessage`. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage` unless `baseTableEmpty` is projected. Checkbox clicks do not emit `rowClick`. Interactive cell widgets should `$event.stopPropagation()` so they do not also fire `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`. Unit tests: `DataTableHarness` with `TestbedHarnessEnvironment.loader(fixture)`.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -892,7 +910,7 @@ A single event within a `base-timeline`: a colored dot (optionally containing a 
 **Selector:** `base-custom-select`
 **Standalone:** true
 
-A highly customizable dropdown select component. Allows mapping arrays of objects to display labels and selection values. Override listbox rows with `<ng-template baseSelectOption let-option let-label="label">` (import `CustomSelectOptionDirective`).
+A highly customizable dropdown select component. Allows mapping arrays of objects to display labels and selection values. Override listbox rows with `<ng-template baseSelectOption let-option let-label="label">` (import `CustomSelectOptionDirective`). Unit tests: `CustomSelectHarness` with `TestbedHarnessEnvironment.loader(fixture)`.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -3846,7 +3864,7 @@ A service that monitors viewport resizing and provides the current Tailwind brea
 ### DialogService
 **`providedIn: 'root'`**
 
-A service for dynamically rendering and managing dialogs/modals. SSR-safe: `open()` is a no-op on the server (returns `of(undefined)`). Overlay hosts are appended via injected `DOCUMENT`, not the global `document`.
+A service for dynamically rendering and managing dialogs/modals. SSR-safe: `open()` is a no-op on the server (returns `of(undefined)`). Overlay hosts are appended via injected `DOCUMENT`, not the global `document`. Unit tests: `DialogHarness` with `TestbedHarnessEnvironment.documentRootLoader(fixture)`.
 
 **Methods:**
 - `open<T>(type: Type<any>, data?: T, className?: string, options?: { hideOnBackdropClick?: boolean; containerType?: Type<any> }): Observable<TResult | undefined>` — Opens a component dynamically inside a dialog container. Returns an Observable that emits the result when the dialog is closed. On the server, emits `undefined` immediately.

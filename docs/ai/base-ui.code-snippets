@@ -268,5 +268,22 @@
       "})"
     ],
     "description": "Library defaults for icon sprites and default icon size. Install: npx base-ui-cli add config --yes"
+  },
+  "Base UI harness": {
+    "prefix": "base-harness",
+    "scope": "typescript",
+    "body": [
+      "import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';",
+      "import { DataTableHarness } from './components/data-table/data-table.harness';",
+      "import { DialogHarness } from './components/dialog/dialog.harness';",
+      "",
+      "const loader = TestbedHarnessEnvironment.loader(fixture);",
+      "const table = await loader.getHarness(DataTableHarness);",
+      "expect(await table.getRowCount()).toBe(${1:3});",
+      "",
+      "const dialogs = TestbedHarnessEnvironment.documentRootLoader(fixture);",
+      "const dialog = await dialogs.getHarness(DialogHarness);"
+    ],
+    "description": "CDK ComponentHarness for copied Base UI data-table. Dialog overlays use documentRootLoader. Copied with the component — not a separate registry item."
   }
 }
