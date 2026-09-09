@@ -71,9 +71,12 @@
       "  label=\"${1:Choice}\"",
       "  [options]=\"${2:options}\"",
       "  [(ngModel)]=\"${3:value}\">",
+      "  <ng-template baseComboboxOption let-option>",
+      "    $0",
+      "  </ng-template>",
       "</base-combobox>"
     ],
-    "description": "Searchable select. Bind ngModel on the host. Install: npx base-ui-cli add combobox --yes"
+    "description": "Searchable select with optional option template. Bind ngModel on the host. Install: npx base-ui-cli add combobox --yes"
   },
   "Base UI select": {
     "prefix": "base-select",
@@ -83,9 +86,12 @@
       "  label=\"${1:Choice}\"",
       "  [options]=\"${2:options}\"",
       "  [(ngModel)]=\"${3:value}\">",
+      "  <ng-template baseSelectOption let-label=\"label\">",
+      "    $0",
+      "  </ng-template>",
       "</base-custom-select>"
     ],
-    "description": "Custom select CVA host. Install: npx base-ui-cli add custom-select --yes"
+    "description": "Custom select CVA host with optional option template. Install: npx base-ui-cli add custom-select --yes"
   },
   "Base UI toggle": {
     "prefix": "base-toggle",
@@ -151,9 +157,12 @@
       "  [(selected)]=\"${6:selected}\"",
       "  (pageChange)=\"${7:fetch}($event)\"",
       "  (sortChange)=\"${8:onSort}($event)\">",
+      "  <ng-template baseTableCell=\"${9:status}\" let-value=\"value\">",
+      "    $0",
+      "  </ng-template>",
       "</base-data-table>"
     ],
-    "description": "Pro data table. Install: npx base-ui-cli add data-table --yes"
+    "description": "Pro data table with optional cell templates. Install: npx base-ui-cli add data-table --yes"
   },
   "Base UI tabs": {
     "prefix": "base-tabs",

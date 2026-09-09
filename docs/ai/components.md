@@ -736,13 +736,13 @@ Countdown timer that renders a horizontal row (`flex gap-2` host) of boxed digit
 **Selector:** `base-data-table`
 **Standalone:** true
 
-Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as raw `row[column.key]` values from `TableColumn[]` — no custom cell templates. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage`. Checkbox clicks do not emit `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`.
+Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as `row[column.key]` by default. Override a column with `<ng-template baseTableCell="key" let-row let-value="value">` (import `TableCellDirective`); project `<ng-template baseTableEmpty>` to replace `emptyMessage`. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage` unless `baseTableEmpty` is projected. Checkbox clicks do not emit `rowClick`. Interactive cell widgets should `$event.stopPropagation()` so they do not also fire `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | class | `string` | '' | Extra classes merged into the host's `block` class via `cn()`. |
-| columns | `TableColumn[]` | [] | Column definitions (`key`, `label`, optional `sortable` / `width` / `minWidth` / `resizable` / `align`). |
+| columns | `TableColumn[]` | [] | Column definitions (`key`, `label`, optional `sortable` / `width` / `minWidth` / `resizable` / `align`). Cells default to `row[key]`; override with `baseTableCell`. |
 | data | `T[]` | [] | Row objects. When `serverSide` is set, pass the current page only. |
 | sortable | `boolean` | false | Enables header click sorting for columns with `sortable: true`. Accepts attribute shorthand via `booleanAttribute`. |
 | pageable | `boolean` | false | Shows the paginator when the row count exceeds `pageSize` (or when `serverSide` + `totalItems` require it). |
@@ -751,7 +751,7 @@ Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic
 | striped | `boolean` | false | Tints odd rows with a subtle background. |
 | bordered | `boolean` | false | Adds outer table border and per-row bottom borders. |
 | hoverable | `boolean` | true | Applies a hover background to body rows. |
-| emptyMessage | `string` | 'No data available' | Text shown when `data` is empty and not loading. |
+| emptyMessage | `string` | 'No data available' | Text shown when `data` is empty and not loading. Replaced by `baseTableEmpty` when projected. |
 | selectable | `boolean` | false | Adds a checkbox column. Bind `selected` to an array of `rowKey` values. |
 | rowKey | `string` | 'id' | Property used as the selection identity. |
 | selected | `Array<string \| number>` | [] | Selected row ids (or whatever `rowKey` points at). Two-way (`model`). |
@@ -770,6 +770,12 @@ Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic
 | sortChange | `DataTableSortChange` (`{ key: string; direction: TableSortDirection }`) | Emitted after each sort toggle; `key` is '' and `direction` is '' when sorting is cleared (third click). |
 | pageChange | `DataTablePageChange` (`{ page: number; pageSize: number }`) | Emitted when the paginator changes page. Always fired in `serverSide` mode. |
 | selectionChange | `T[]` | Emitted with the selected row objects whenever the checkbox column changes. |
+
+**Content:**
+| Selector | Description |
+|---------|-------------|
+| `ng-template baseTableCell="columnKey"` | Cell renderer for that `TableColumn.key`. Context: `$implicit`/`row`, `value`, `column`, `index`. Import `TableCellDirective`. |
+| `ng-template baseTableEmpty` | Replaces `emptyMessage` when the table has no rows. Import `TableEmptyDirective`. |
 
 ---
 
@@ -846,7 +852,7 @@ A single event within a `base-timeline`: a colored dot (optionally containing a 
 **Selector:** `base-custom-select`
 **Standalone:** true
 
-A highly customizable dropdown select component. Allows mapping arrays of objects to display labels and selection values.
+A highly customizable dropdown select component. Allows mapping arrays of objects to display labels and selection values. Override listbox rows with `<ng-template baseSelectOption let-option let-label="label">` (import `CustomSelectOptionDirective`).
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -864,13 +870,18 @@ A highly customizable dropdown select component. Allows mapping arrays of object
 |------|-----------|-------------|
 | selectionChange | `unknown` | Emits the selected value whenever the user clicks an option. |
 
+**Content:**
+| Selector | Description |
+|---------|-------------|
+| `ng-template baseSelectOption` | Option renderer. Context: `$implicit`/`option`, `label`, `selected`, `active`, `index`. Import `CustomSelectOptionDirective`. |
+
 ---
 
 ### ComboboxComponent
 **Selector:** `base-combobox`
 **Standalone:** true
 
-Searchable single-select with keyboard navigation, optional create, local or async filtering, and Angular Forms (`string | null`). The results panel is a CDK overlay attached to the viewport (not `position: absolute` inside the field), aligned to the trigger’s start edge, so it is not clipped by a parent `overflow: hidden`. Use `filterMode="none"` with `(queryChange)` for server search.
+Searchable single-select with keyboard navigation, optional create, local or async filtering, and Angular Forms (`string | null`). The results panel is a CDK overlay attached to the viewport (not `position: absolute` inside the field), aligned to the trigger’s start edge, so it is not clipped by a parent `overflow: hidden`. Use `filterMode="none"` with `(queryChange)` for server search. Override listbox rows with `<ng-template baseComboboxOption let-option>` (import `ComboboxOptionDirective`).
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -891,6 +902,11 @@ Searchable single-select with keyboard navigation, optional create, local or asy
 | queryChange | `string` | Typed query on every change. |
 | create | `string` | Emitted when the user creates a value not in `options`. |
 | selectionChange | `string \| null` | Selected option value. |
+
+**Content:**
+| Selector | Description |
+|---------|-------------|
+| `ng-template baseComboboxOption` | Option renderer. Context: `$implicit`/`option`, `selected`, `active`, `index`. Import `ComboboxOptionDirective`. |
 
 ---
 

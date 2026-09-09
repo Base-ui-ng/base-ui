@@ -28,6 +28,7 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 - Components: `<base-card>`, `<base-dialog>` is not a tag — open modals with `inject(DialogService).open(MyComponent)`.
 - Directives: `[base-button]`, `[base-stroked-button]`, `[base-input]`, `[base-textarea]`.
 - Native fields: `<input base-input [(ngModel)]="…">` or Angular 22 `[formField]` + `base-input`.
+- `data-table` cells: project `<ng-template baseTableCell="columnKey" let-row let-value="value">`. Combobox options: `baseComboboxOption`. Custom select: `baseSelectOption`. Do not fork those components to render a badge or a row action.
 - CVA hosts (`base-combobox`, `base-tags-input`, `base-toggle`, `base-custom-select`, `base-file-upload`, `base-mention-input`) bind `[(ngModel)]` / `[formField]` on the host, not on an inner native input.
 - Do not nest composite controls inside `base-input-group` — only `[base-input]`, `[base-textarea]`, and `base-mention-input` are projected.
 

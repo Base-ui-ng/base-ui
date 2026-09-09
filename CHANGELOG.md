@@ -10,6 +10,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## September 2026
 
+- **Features** — **data-table:** add cell and option templates
 - **Features** — **cli:** add doctor command to verify project setup
 - **Features** — **cli:** pick from the catalog when add has no names
 - **Features** — **docs:** add Preview/Code demos and live playgrounds.
