@@ -30,6 +30,7 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 - Native fields: `<input base-input [(ngModel)]="…">` or Angular 22 `[formField]` + `base-input`.
 - `data-table` cells: project `<ng-template baseTableCell="columnKey" let-row let-value="value">`. Combobox options: `baseComboboxOption`. Custom select: `baseSelectOption`. Do not fork those components to render a badge or a row action.
 - Chrome strings (empty states, Close, paginator): `provideBaseUiI18n({ close: 'Fermer' })` in `app.config.ts`. Per-instance `emptyMessage` / `emptyText` still override. Not ngx-translate.
+- Icon sprites: `provideBaseUI({ iconPath: 'assets/icons.svg' })` in `app.config.ts`. Per-instance `[path]` / `[filledPath]` / `[size]` still win. `w-*`/`h-*` classes keep class-based sizing.
 - CVA hosts (`base-combobox`, `base-tags-input`, `base-toggle`, `base-custom-select`, `base-file-upload`, `base-mention-input`) bind `[(ngModel)]` / `[formField]` on the host, not on an inner native input.
 - Do not nest composite controls inside `base-input-group` — only `[base-input]`, `[base-textarea]`, and `base-mention-input` are projected.
 

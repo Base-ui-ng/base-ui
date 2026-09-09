@@ -256,5 +256,17 @@
       "})"
     ],
     "description": "Chrome-string dictionary for empty states, paginator, and dialog close. Install: npx base-ui-cli add i18n --yes"
+  },
+  "Base UI config": {
+    "prefix": "base-config",
+    "scope": "typescript",
+    "body": [
+      "provideBaseUI({",
+      "  iconPath: '${1:assets/icons.svg}',",
+      "  filledIconPath: '${2:assets/icons-filled.svg}',",
+      "  defaultSize: ${3:20}",
+      "})"
+    ],
+    "description": "Library defaults for icon sprites and default icon size. Install: npx base-ui-cli add config --yes"
   }
 }

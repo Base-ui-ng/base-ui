@@ -29,7 +29,7 @@ The same rule applies to any component whose host binding sets layout utilities 
 
 ### Icons: line vs. filled
 
-`<base-icon>` renders symbols from `assets/icons.svg`. The outline symbols hard-code `fill="none"`, which always beats an inherited CSS fill — a `fill-*` class can never fill a line icon. For solid glyphs (active wishlist heart, rating stars) use the `filled` input, which switches to `assets/icons-filled.svg` whose symbols use `fill="currentColor"`, and color them with `text-*` classes:
+`<base-icon>` renders symbols from `assets/icons.svg`. Override the sprite once with `provideBaseUI({ iconPath })` — per-instance `[path]` still wins. The outline symbols hard-code `fill="none"`, which always beats an inherited CSS fill — a `fill-*` class can never fill a line icon. For solid glyphs (active wishlist heart, rating stars) use the `filled` input, which switches to `assets/icons-filled.svg` (or `provideBaseUI().filledIconPath`) whose symbols use `fill="currentColor"`, and color them with `text-*` classes:
 
 ```html
 <base-icon name="heart" [filled]="wishlisted()" class="text-red-500"></base-icon>
@@ -58,6 +58,26 @@ export const appConfig: ApplicationConfig = {
 ```
 
 Install: `npx base-ui-cli add i18n` (also pulled in by data-table, combobox, dialog, paginator). Per-instance inputs (`emptyMessage`, `emptyText`, `[ariaLabel]` on close) still win. Layout marketing copy is not in this dictionary.
+
+### Icon sprites (`provideBaseUI`)
+
+`<base-icon>` loads `assets/icons.svg` (outline) and `assets/icons-filled.svg` (solid). Override once in `app.config.ts`:
+
+```ts
+import { provideBaseUI } from './components/config/config';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideBaseUI({
+      iconPath: 'assets/icons.svg',
+      filledIconPath: 'assets/icons-filled.svg',
+      defaultSize: 20,
+    }),
+  ],
+};
+```
+
+Install: `npx base-ui-cli add config` (also pulled in by `icon`). Per-instance `[path]`, `[filledPath]`, and `[size]` still win. `w-*` / `h-*` classes keep class-based sizing, so `defaultSize` does not fight those utilities.
 
 ### Closing popovers and drawers on navigation
 
@@ -2436,15 +2456,16 @@ Full-width mega menu with a trigger slot and a dropdown panel. Content projected
 **Selector:** `base-icon`
 **Standalone:** true
 
-A highly optimized SVG icon component. By default it pulls SVG definitions from `assets/icons.svg` using the provided `name`. Inherits the current text color if not explicitly provided.
+A highly optimized SVG icon component. By default it pulls SVG definitions from `assets/icons.svg` using the provided `name`. Override sprite paths with `provideBaseUI({ iconPath })`. Inherits the current text color if not explicitly provided.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | name | `string` | '' | The SVG id/name of the icon to render (e.g. 'chevron-right'). |
-| path | `string` | 'assets/icons.svg' | The path to the SVG sprite file. |
+| path | `string` | provideBaseUI().iconPath | Outline sprite. Empty uses `provideBaseUI().iconPath` (default `assets/icons.svg`). |
+| filledPath | `string` | provideBaseUI().filledIconPath | Solid sprite when `filled` is true. Empty uses `provideBaseUI().filledIconPath`. |
 | color | `string` | '' | Optional explicit CSS color. |
-| size | `string \| number` | '' | The size of the icon in pixels or CSS units. |
+| size | `string \| number` | '' | Explicit size. Empty uses `provideBaseUI().defaultSize` unless the host has `w-*` / `h-*` classes. |
 
 ---
 
@@ -3892,6 +3913,15 @@ provideBaseUiI18n(overrides?: Partial<BaseUiI18n>): EnvironmentProviders
 
 Chrome-string dictionary for empty states, paginator labels, and dialog close. Register once in `app.config.ts`. English defaults apply when omitted. Per-instance inputs (`emptyMessage`, `emptyText`) still win. Install: `npx base-ui-cli add i18n`.
 
+### provideBaseUI()
+```
+provideBaseUI(overrides?: Partial<BaseUiConfig>): EnvironmentProviders
+```
+
+Library defaults for icon sprite paths and default icon size. Register once in `app.config.ts`. Per-instance `[path]`, `[filledPath]`, and `[size]` still win. `w-*` / `h-*` classes keep class-based sizing. Install: `npx base-ui-cli add config`.
+
+---
+
 ### getMenuItems() / focusMenuItem() / focusMenuItemEdge() / focusMenuItemTypeahead()
 ```
 getMenuItems(container: ParentNode): HTMLElement[]
@@ -3911,6 +3941,7 @@ Shared roving-focus helpers for `role="menuitem*"` panels (dropdown-menu, contex
 | `GALLERY_SLIDER_TOKEN` | `InjectionToken` | Injection token used internally by gallery slider components to share state. |
 | `RADIO_GROUP` | `InjectionToken` | Injection token for radio group coordination. |
 | `BASE_UI_I18N` | `InjectionToken<BaseUiI18n>` | Chrome-string dictionary. Prefer `provideBaseUiI18n()`. |
+| `BASE_UI_CONFIG` | `InjectionToken<BaseUiConfig>` | Icon sprite paths and default size. Prefer `provideBaseUI()`. |
 
 ## Type Exports
 
@@ -3918,3 +3949,4 @@ Shared roving-focus helpers for `role="menuitem*"` panels (dropdown-menu, contex
 |------|------|-------------|
 | `CookieConsent` | `'accepted' \| 'rejected'` | Choice stored by `base-cookie-banner` and emitted on `consentChange`. |
 | `BaseUiI18n` | `interface` | Chrome-string dictionary passed to `provideBaseUiI18n()`. |
+| `BaseUiConfig` | `interface` | Library defaults passed to `provideBaseUI()`. |
