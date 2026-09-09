@@ -244,5 +244,17 @@
       "}"
     ],
     "description": "Standalone OnPush component with signal input/output and a Base UI card"
+  },
+  "Base UI i18n": {
+    "prefix": "base-i18n",
+    "scope": "typescript",
+    "body": [
+      "provideBaseUiI18n({",
+      "  close: '${1:Fermer}',",
+      "  noDataAvailable: '${2:Aucune donnée}',",
+      "  noResults: '${3:Aucun résultat}'",
+      "})"
+    ],
+    "description": "Chrome-string dictionary for empty states, paginator, and dialog close. Install: npx base-ui-cli add i18n --yes"
   }
 }

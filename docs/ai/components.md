@@ -39,6 +39,26 @@ The same rule applies to any component whose host binding sets layout utilities 
 
 The drawer animates with `@angular/animations` triggers. Without a provider, opening it throws `NG05105: Unexpected synthetic property @slideLeft`. Register `provideAnimationsAsync()` in `app.config.ts`.
 
+### Chrome strings (`provideBaseUiI18n`)
+
+Empty states, paginator labels, and `base-dialog-close` aria-labels default to English. Register overrides in `app.config.ts`:
+
+```ts
+import { provideBaseUiI18n } from './components/i18n/i18n';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideBaseUiI18n({
+      close: 'Fermer',
+      noDataAvailable: 'Aucune donnée',
+      noResults: 'Aucun résultat',
+    }),
+  ],
+};
+```
+
+Install: `npx base-ui-cli add i18n` (also pulled in by data-table, combobox, dialog, paginator). Per-instance inputs (`emptyMessage`, `emptyText`, `[ariaLabel]` on close) still win. Layout marketing copy is not in this dictionary.
+
 ### Closing popovers and drawers on navigation
 
 Overlays do not close themselves when the user clicks a link inside them:
@@ -751,7 +771,7 @@ Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic
 | striped | `boolean` | false | Tints odd rows with a subtle background. |
 | bordered | `boolean` | false | Adds outer table border and per-row bottom borders. |
 | hoverable | `boolean` | true | Applies a hover background to body rows. |
-| emptyMessage | `string` | 'No data available' | Text shown when `data` is empty and not loading. Replaced by `baseTableEmpty` when projected. |
+| emptyMessage | `string` | i18n.noDataAvailable | Text shown when `data` is empty and not loading. Defaults to `provideBaseUiI18n().noDataAvailable`. Replaced by `baseTableEmpty` when projected. |
 | selectable | `boolean` | false | Adds a checkbox column. Bind `selected` to an array of `rowKey` values. |
 | rowKey | `string` | 'id' | Property used as the selection identity. |
 | selected | `Array<string \| number>` | [] | Selected row ids (or whatever `rowKey` points at). Two-way (`model`). |
@@ -893,7 +913,7 @@ Searchable single-select with keyboard navigation, optional create, local or asy
 | filterMode | `'local' \| 'none'` | 'local' | `local` filters by label; `none` shows `options` as-is. |
 | loading | `boolean` | false | Spinner in the panel (async search). |
 | allowCreate | `boolean` | false | Create the current query when it matches no option. |
-| emptyText | `string` | 'No results' | Empty-state copy. |
+| emptyText | `string` | i18n.noResults | Empty-state copy. Defaults to `provideBaseUiI18n().noResults`. |
 | disabled | `boolean` | false | Disables the field (also set by forms). |
 
 **Outputs:**
@@ -1599,7 +1619,7 @@ The main wrapper component for dialog/modal content. Should be used inside a com
 **Selector:** `base-dialog-container`
 **Standalone:** true
 
-Internal container component that renders the dialog overlay and handles click-outside behavior. Created dynamically by `DialogService`. Traps keyboard focus with Angular CDK `FocusTrapFactory` while open.
+Internal container component that renders the dialog overlay and handles click-outside behavior. Created dynamically by `DialogService`. Traps keyboard focus with Angular CDK `FocusTrapFactory` while open. Unlabelled dialogs get `aria-label` from `provideBaseUiI18n().dialog`.
 
 *No inputs or outputs.*
 
@@ -2334,7 +2354,7 @@ A section within a scroll-nav component that is linked to a sidebar item.
 **Selector:** `base-paginator`
 **Standalone:** true
 
-A pagination control component. Allows users to navigate between pages of data and change the page size.
+A pagination control component. Allows users to navigate between pages of data and change the page size. Previous/next labels come from `provideBaseUiI18n()`.
 
 **Inputs:**
 | Name | Type | Default | Description |
@@ -3685,12 +3705,12 @@ A directive that dismisses the parent `base-alert` when clicked.
 **Selector:** `[base-dialog-close]`
 **Standalone:** true
 
-A directive that automatically closes the current open dialog when the host element is clicked. Injects `DialogContext` to find the active dialog reference.
+A directive that automatically closes the current open dialog when the host element is clicked. Injects `DialogContext` to find the active dialog reference. Icon-only close buttons use `provideBaseUiI18n().close` unless `[ariaLabel]` is set.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-| ariaLabel | `string` | — | Optional aria-label for accessibility. |
+| ariaLabel | `string` | i18n.close | Optional aria-label. Falls back to `provideBaseUiI18n().close`. |
 | type | `string` | 'button' | The native button type. |
 
 ---
@@ -3865,6 +3885,13 @@ cn(...inputs: ClassValue[]): string
 
 Merges Tailwind classes safely, resolving conflicts using `tailwind-merge` and `clsx`. Use this to allow users to override default tailwind classes on components.
 
+### provideBaseUiI18n()
+```
+provideBaseUiI18n(overrides?: Partial<BaseUiI18n>): EnvironmentProviders
+```
+
+Chrome-string dictionary for empty states, paginator labels, and dialog close. Register once in `app.config.ts`. English defaults apply when omitted. Per-instance inputs (`emptyMessage`, `emptyText`) still win. Install: `npx base-ui-cli add i18n`.
+
 ---
 
 ## Token Exports
@@ -3873,9 +3900,11 @@ Merges Tailwind classes safely, resolving conflicts using `tailwind-merge` and `
 |------|------|-------------|
 | `GALLERY_SLIDER_TOKEN` | `InjectionToken` | Injection token used internally by gallery slider components to share state. |
 | `RADIO_GROUP` | `InjectionToken` | Injection token for radio group coordination. |
+| `BASE_UI_I18N` | `InjectionToken<BaseUiI18n>` | Chrome-string dictionary. Prefer `provideBaseUiI18n()`. |
 
 ## Type Exports
 
 | Name | Type | Description |
 |------|------|-------------|
 | `CookieConsent` | `'accepted' \| 'rejected'` | Choice stored by `base-cookie-banner` and emitted on `consentChange`. |
+| `BaseUiI18n` | `interface` | Chrome-string dictionary passed to `provideBaseUiI18n()`. |
