@@ -10,7 +10,8 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## September 2026
 
-- **Features** — **i18n:** add provideBaseUiI18n for chrome strings
+- **Features** — **a11y:** add overlay keyboard specs and axe-core on open panels
+- **Features** — **i18n:** add provideBaseUiI18n for chrome strings (#137)
 - **Features** — **data-table:** add cell and option templates (#136)
 - **Features** — **cli:** add doctor command to verify project setup
 - **Features** — **cli:** pick from the catalog when add has no names

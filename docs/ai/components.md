@@ -3892,6 +3892,16 @@ provideBaseUiI18n(overrides?: Partial<BaseUiI18n>): EnvironmentProviders
 
 Chrome-string dictionary for empty states, paginator labels, and dialog close. Register once in `app.config.ts`. English defaults apply when omitted. Per-instance inputs (`emptyMessage`, `emptyText`) still win. Install: `npx base-ui-cli add i18n`.
 
+### getMenuItems() / focusMenuItem() / focusMenuItemEdge() / focusMenuItemTypeahead()
+```
+getMenuItems(container: ParentNode): HTMLElement[]
+focusMenuItem(container: ParentNode, current: HTMLElement | null, delta: number): HTMLElement | null
+focusMenuItemEdge(container: ParentNode, edge: 'first' | 'last'): HTMLElement | null
+focusMenuItemTypeahead(container: ParentNode, char: string, current: HTMLElement | null): HTMLElement | null
+```
+
+Shared roving-focus helpers for `role="menuitem*"` panels (dropdown-menu, context-menu). Combobox, custom-select, and command-palette keep `aria-activedescendant` instead of moving DOM focus. Install: `npx base-ui-cli add a11y-keyboard`.
+
 ---
 
 ## Token Exports

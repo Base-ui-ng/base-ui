@@ -46,6 +46,7 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 - `DialogService.open()` is a no-op during SSR. Toast and dialog hosts append via `DOCUMENT`.
 - Drawers need `provideAnimationsAsync()`.
 - Close popovers/drawers yourself on in-panel navigation (`popover.close()`, `drawer.closed.emit()`).
+- Overlay menus (dropdown, context) use `a11y-keyboard` (roving tabindex, Home/End, typeahead). Combobox, custom-select, and command-palette use `aria-activedescendant` — do not switch those to the menu helper.
 - Do not put `base-toast-container` in templates; the toast service owns the overlay.
 
 ## Agents
