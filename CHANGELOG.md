@@ -10,6 +10,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 ## September 2026
 
+- **Features** — add free table primitives and run cookbooks on the APIs they name (#144)
 - **Features** — add password input, confirm dialog, and semantic theme tokens (#143)
 - **Features** — **a11y:** overlay keyboard specs and axe-core on open panels (#138)
 - **Features** — **testing:** add CDK harnesses for data-table, select, and dialog (#140)

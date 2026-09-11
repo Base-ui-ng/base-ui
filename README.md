@@ -151,7 +151,7 @@ no-ops outside a server render.
 
 For AI agents and LLM-assisted development:
 
-- **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free tier, no license). Works with **Cursor**, **Claude** (Code/Desktop), **ChatGPT**, **Gemini**, **Kimi** (Kimi Code CLI), **VS Code** / GitHub Copilot, **Windsurf**, and other MCP hosts. Run `npx -y base-ui-mcp` (stdio). Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
+- **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free), plus `init_project`, `doctor`, `diff_components`, `update_components`. Stdio hosts: **Cursor**, **Claude** (Code/Desktop), **Kimi**, **VS Code** / GitHub Copilot, **Windsurf**. ChatGPT/Gemini chat need hosted HTTP (not shipped). Run `npx -y base-ui-mcp`. Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
 - **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://base-ui.net/getting-started/#editor-rules), or `npx base-ui-cli init` writes them when missing.
 - **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
@@ -197,7 +197,7 @@ npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Omit the
 Run npx base-ui-cli doctor. It checks base-ui.json, the Angular workspace, @angular/cdk, Tailwind v4 @source paths, the base-ui.css import, icon sprites, and the components directory — read-only, nothing is written.
 
 **Can AI agents install Base UI?**  
-Yes. The free MCP server (npx -y base-ui-mcp) lets Cursor, Claude, ChatGPT, Gemini, Kimi, VS Code, Windsurf, and other MCP hosts search the catalog and add free components. Editors that skip MCP can copy the Cursor rule and snippet pack from https://base-ui.net/getting-started/#editor-rules. llms.txt and the registry JSON give agents accurate API facts. Pro installs still use the CLI with a license key.
+Yes. The free stdio MCP server (npx -y base-ui-mcp) lets Cursor, Claude (Code/Desktop), Kimi, VS Code, Windsurf, and other local MCP hosts search the catalog, init/doctor a project, diff/update tracked components, and add free components. ChatGPT and Gemini chat apps need a hosted HTTP MCP URL, which is not shipped yet — use an IDE agent, or npx base-ui-cli plus https://base-ui.net/llms.txt. Editors that skip MCP can copy the Cursor rule and snippet pack from https://base-ui.net/getting-started/#editor-rules. Pro installs still use the CLI with a license key.
 
 **What is the risk if Base UI disappears?**  
 Near zero. Installed code is in your version control with no runtime dependency; deleting the CLI changes nothing about your app.
