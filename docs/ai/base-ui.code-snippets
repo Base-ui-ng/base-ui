@@ -41,6 +41,31 @@
     ],
     "description": "Open a Base UI dialog. Install: npx base-ui-cli add dialog --yes"
   },
+  "Base UI dialog confirm": {
+    "prefix": "base-confirm",
+    "scope": "typescript",
+    "body": [
+      "this.dialog.confirm({",
+      "  title: '${1:Delete this item?}',",
+      "  description: '${2:This cannot be undone.}',",
+      "  destructive: true",
+      "}).subscribe((ok) => {",
+      "  if (!ok) return;",
+      "  $0",
+      "});"
+    ],
+    "description": "Confirm dialog. Install: npx base-ui-cli add dialog --yes"
+  },
+  "Base UI password input": {
+    "prefix": "base-password",
+    "scope": "html",
+    "body": [
+      "<base-password-input label=\"${1:Password}\" [(ngModel)]=\"${2:password}\" [showStrength]=\"true\">",
+      "  <base-error>${3:Password is required}</base-error>",
+      "</base-password-input>"
+    ],
+    "description": "Password field with show/hide. Install: npx base-ui-cli add password-input --yes"
+  },
   "Base UI input group": {
     "prefix": "base-input",
     "scope": "html",

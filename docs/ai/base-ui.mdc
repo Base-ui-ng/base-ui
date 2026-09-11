@@ -32,20 +32,21 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 - Chrome strings (empty states, Close, paginator): `provideBaseUiI18n({ close: 'Fermer' })` in `app.config.ts`. Per-instance `emptyMessage` / `emptyText` still override. Not ngx-translate.
 - Icon sprites: `provideBaseUI({ iconPath: 'assets/icons.svg' })` in `app.config.ts`. Per-instance `[path]` / `[filledPath]` / `[size]` still win. `w-*`/`h-*` classes keep class-based sizing.
 - Tests: use the copied `*.harness.ts` for data-table, custom-select, and dialog. `TestbedHarnessEnvironment.loader(fixture)`; dialogs need `documentRootLoader` (overlay on `document.body`). Do not invent query helpers for those three.
-- CVA hosts (`base-combobox`, `base-tags-input`, `base-toggle`, `base-custom-select`, `base-file-upload`, `base-mention-input`) bind `[(ngModel)]` / `[formField]` on the host, not on an inner native input.
-- Do not nest composite controls inside `base-input-group` — only `[base-input]`, `[base-textarea]`, and `base-mention-input` are projected.
+- CVA hosts (`base-combobox`, `base-tags-input`, `base-toggle`, `base-custom-select`, `base-file-upload`, `base-mention-input`, `base-password-input`) bind `[(ngModel)]` / `[formField]` on the host, not on an inner native input.
+- Do not nest composite controls inside `base-input-group` — only `[base-input]`, `[base-textarea]`, and `base-mention-input` are projected. Use `base-password-input` for password fields (it already includes a group).
+- Confirm destructive actions with `inject(DialogService).confirm({ title, destructive: true })` — do not copy a one-off confirm dialog.
 
 ## Tailwind v4
 
 - Style with utilities. Pair light and `dark:` variants (`bg-white dark:bg-slate-800`). Dark mode is the `dark` class on `<html>`.
 - Prefer pixel arbitrary values in new UI (`p-[16px]`, `gap-[8px]`) so spacing does not depend on a custom theme.
-- `color="primary"` is Tailwind `blue-*`. Override `--color-blue-500` to rebrand; do not introduce a parallel token set.
-- If a host class override loses to the component's base utilities, use Tailwind v4 important (`absolute!`, `rounded-full!`).
+- `color="primary"` reads `--base-primary` from `base-ui.css`. Theme Studio Copy CSS writes the same tokens. Unmigrated widgets still follow `--color-blue-*`.
+- Button and input `class` values merge via `cn()`. `class="rounded-full"` and `class="absolute …"` override defaults. Existing `utility!` still works.
 - `<base-icon>` outlines: `stroke-*`. Filled icons: `[filled]="true"` and `text-*` / `fill-*`.
 
 ## Async, overlays, SSR
 
-- `DialogService.open()` is a no-op during SSR. Toast and dialog hosts append via `DOCUMENT`.
+- `DialogService.open()` is a no-op during SSR. `DialogService.confirm()` emits `false` on the server. Toast and dialog hosts append via `DOCUMENT`.
 - Drawers need `provideAnimationsAsync()`.
 - Close popovers/drawers yourself on in-panel navigation (`popover.close()`, `drawer.closed.emit()`).
 - Overlay menus (dropdown, context) use `a11y-keyboard` (roving tabindex, Home/End, typeahead). Combobox, custom-select, and command-palette use `aria-activedescendant` — do not switch those to the menu helper.

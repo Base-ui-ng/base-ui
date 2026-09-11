@@ -11,21 +11,15 @@ Read these before composing components into pages — they prevent the most comm
 
 ### Utility-class conflicts with component base classes
 
-Button directives (`base-button`, `base-stroked-button`, `base-icon-button`, `base-icon-stroked-button`) apply their own base classes through a host `[class]` binding, including `relative` (position) and `rounded-lg`. Angular **merges** your static `class` attribute with the directive's host classes, so both end up on the element — and the winner of a conflict is decided by the order of the utilities inside the generated Tailwind stylesheet, **not** by their order in the class attribute. In practice the base classes win, so this silently fails:
+Button directives (`base-button`, `base-stroked-button`, `base-icon-button`, `base-stroked-icon-button`) and `base-input` / `base-textarea` merge extra `class` values with `cn()`. Conflicting Tailwind utilities in `class` win over defaults:
 
 ```html
-<!-- WRONG: stays `relative` and `rounded-lg` -->
 <button base-icon-button color="white" class="absolute right-3 top-3 rounded-full">…</button>
 ```
 
-Use Tailwind v4's important suffix (`utility!`) whenever you override position, radius, or any other utility the component already sets:
+`color="primary"` / `"danger"` read `--base-primary` and `--base-destructive` from `base-ui.css`. Buttons use `FOCUS_RING`. Field chrome uses `FOCUS_RING_WITHIN` on `base-input-group` so addons stay inside the halo.
 
-```html
-<!-- RIGHT: anchored white circle, e.g. a wishlist button floating on a product image -->
-<button base-icon-button color="white" class="absolute! right-3 top-3 rounded-full! shadow-md">…</button>
-```
-
-The same rule applies to any component whose host binding sets layout utilities (position, radius, width/height, display): when an override "doesn't apply", inspect the element for a conflicting base class first — don't debug your own CSS.
+The same `cn()` merge applies to any component whose host binding includes `extraClass`. Existing `utility!` overrides still work.
 
 ### Icons: line vs. filled
 
@@ -1224,9 +1218,13 @@ An input field that opens a calendar popup specifically for picking start and en
 **Selector:** `base-input-group`
 **Standalone:** true
 
-A structural container component that wraps form controls like inputs, selects, and textareas. Can automatically detect Angular FormControl state to conditionally display nested `base-error` components.
+A structural container wrapping form controls. Extra `class` values merge via `cn()`. Nested `base-error` shows after the field is touched for both `formControlName` / `ngModel` and Angular 22 `[formField]`. Sets `aria-invalid` and `aria-describedby` on the projected input. Focus ring is on the wrapper (`focus-within`) so start/end addons stay inside the halo.
 
-*No inputs or outputs.*
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | '' | Extra host classes merged via `cn()`. |
+| invalid | `boolean` | false | Force the error state. Composite CVA hosts such as `base-password-input` bind this when the form control lives on the wrapper. |
 
 ---
 
@@ -1546,6 +1544,25 @@ Four-segment password strength meter bar with a text label below it. Computes a 
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | password | `string` | '' | The password value to evaluate; the strength score and label are recomputed whenever it changes. |
+
+---
+
+### PasswordInputComponent
+**Selector:** `base-password-input`
+**Standalone:** true
+
+Password field with a show/hide toggle. ControlValueAccessor — bind `formControlName`, `ngModel`, or `[formField]` on `base-password-input` itself. Do not wrap in another `base-input-group`. Project `base-error` as content. Optional `[showStrength]` renders `base-password-strength` below the field. Toggle labels come from `provideBaseUiI18n()` (`showPassword` / `hidePassword`).
+
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | '' | Extra host classes merged via `cn()`. |
+| label | `string` | '' | Optional label rendered inside the inner input-group. |
+| placeholder | `string` | '••••••••' | Native placeholder. |
+| autocomplete | `string` | 'current-password' | Native autocomplete. |
+| name | `string` | '' | Native name attribute. |
+| showStrength | `boolean` | false | Show the password-strength meter (`booleanAttribute`). |
+| disabled | `boolean` | false | Disables the field; also set by Angular Forms via `setDisabledState`. |
 
 ---
 
@@ -3393,11 +3410,12 @@ Lightweight WYSIWYG editor with a themed toolbar (`base-stroked-icon-button`, to
 **Selector:** `[base-button]`
 **Standalone:** true
 
-A standard button directive applying Lussos theme styles.
+A standard button directive. Extra `class` values merge via `cn()`. Primary/danger colors and radius read `--base-*` tokens. Includes a `focus-visible` ring.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 | color | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'accent' \| 'white' \| 'black' \| 'default' \| 'transparent' \| string` | 'default' | The semantic visual color. |
 | size | `'sm' \| 'default' \| 'lg' \| 'xl' \| 'xxl'` | 'default' | The size of the button. |
 | width | `string` | — | Optional custom width (e.g. '100%'). |
@@ -3408,11 +3426,12 @@ A standard button directive applying Lussos theme styles.
 **Selector:** `[base-stroked-button]`
 **Standalone:** true
 
-A stroked button directive applying Lussos theme styles.
+A stroked button directive. Extra `class` values merge via `cn()`. Includes a `focus-visible` ring.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 | color | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'accent' \| 'white' \| 'black' \| 'default'` | 'default' | The semantic visual color. |
 | size | `'sm' \| 'default' \| 'lg' \| 'xl' \| 'xxl'` | 'default' | The size of the button. |
 | width | `string` | — | Optional custom width (e.g. '100%'). |
@@ -3423,11 +3442,12 @@ A stroked button directive applying Lussos theme styles.
 **Selector:** `[base-icon-button]`
 **Standalone:** true
 
-An icon-only button directive applying Lussos theme styles.
+An icon-only button directive. Extra `class` values merge via `cn()` (e.g. `class="rounded-full"`). Includes a `focus-visible` ring.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 | color | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'accent' \| 'white' \| 'black' \| 'default' \| 'transparent' \| string` | 'default' | The semantic visual color. |
 | size | `'sm' \| 'default' \| 'lg' \| 'xl' \| 'xxl'` | 'default' | The size of the button. |
 
@@ -3437,11 +3457,12 @@ An icon-only button directive applying Lussos theme styles.
 **Selector:** `[base-stroked-icon-button]`
 **Standalone:** true
 
-A stroked icon-only button directive applying Lussos theme styles.
+A stroked icon-only button directive. Extra `class` values merge via `cn()`. Includes a `focus-visible` ring.
 
 **Inputs:**
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 | color | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'accent' \| 'white' \| 'black' \| 'default'` | 'default' | The semantic visual color. |
 | size | `'sm' \| 'default' \| 'lg' \| 'xl' \| 'xxl'` | 'default' | The size of the button. |
 
@@ -3466,9 +3487,12 @@ A link directive applying Lussos theme styles. Use this to style inline anchors 
 **Selector:** `[base-input]`
 **Standalone:** true
 
-A standard input directive that applies consistent Lussos theme styling to native text inputs. Supports disabled and readonly states.
+A standard input directive. Extra `class` values merge via `cn()`. Has no focus ring of its own — the ring lives on `base-input-group` so addons stay inside it. Supports disabled and readonly states.
 
-*No inputs.*
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 
 ---
 
@@ -3493,9 +3517,12 @@ Dynamically masks a native `<input>` while typing. Pair with `[base-input]` for 
 **Selector:** `[base-textarea]`
 **Standalone:** true
 
-A standard textarea directive that applies consistent Lussos theme styling.
+A standard textarea directive. Extra `class` values merge via `cn()`. Has no focus ring of its own — the ring lives on `base-input-group`.
 
-*No inputs.*
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
 
 ---
 
@@ -3864,10 +3891,11 @@ A service that monitors viewport resizing and provides the current Tailwind brea
 ### DialogService
 **`providedIn: 'root'`**
 
-A service for dynamically rendering and managing dialogs/modals. SSR-safe: `open()` is a no-op on the server (returns `of(undefined)`). Overlay hosts are appended via injected `DOCUMENT`, not the global `document`. Unit tests: `DialogHarness` with `TestbedHarnessEnvironment.documentRootLoader(fixture)`.
+A service for dynamically rendering and managing dialogs/modals. SSR-safe: `open()` is a no-op on the server (returns `of(undefined)`). `confirm()` emits `false` on the server. Overlay hosts are appended via injected `DOCUMENT`, not the global `document`. Unit tests: `DialogHarness` with `TestbedHarnessEnvironment.documentRootLoader(fixture)`. `npx base-ui-cli add dialog` includes `AlertDialogComponent`.
 
 **Methods:**
 - `open<T>(type: Type<any>, data?: T, className?: string, options?: { hideOnBackdropClick?: boolean; containerType?: Type<any> }): Observable<TResult | undefined>` — Opens a component dynamically inside a dialog container. Returns an Observable that emits the result when the dialog is closed. On the server, emits `undefined` immediately.
+- `confirm(options: { title: string; description?: string; confirmLabel?: string; cancelLabel?: string; destructive?: boolean }): Observable<boolean>` — Opens the built-in alert dialog. Emits `true` only when the user confirms; Cancel, Escape, and backdrop emit `false`.
 
 ---
 
@@ -3922,14 +3950,14 @@ All animations are exported as Angular animation triggers from `animations.ts`.
 cn(...inputs: ClassValue[]): string
 ```
 
-Merges Tailwind classes safely, resolving conflicts using `tailwind-merge` and `clsx`. Use this to allow users to override default tailwind classes on components.
+Merges Tailwind classes safely, resolving conflicts using `tailwind-merge` and `clsx`. Also exports `FOCUS_RING` (buttons), `FOCUS_RING_INSET` (compact cells), and `FOCUS_RING_WITHIN` (`base-input-group` wrapper so addons sit inside the halo).
 
 ### provideBaseUiI18n()
 ```
 provideBaseUiI18n(overrides?: Partial<BaseUiI18n>): EnvironmentProviders
 ```
 
-Chrome-string dictionary for empty states, paginator labels, and dialog close. Register once in `app.config.ts`. English defaults apply when omitted. Per-instance inputs (`emptyMessage`, `emptyText`) still win. Install: `npx base-ui-cli add i18n`.
+Chrome-string dictionary for empty states, paginator labels, dialog close/confirm, and password show/hide. Register once in `app.config.ts`. English defaults apply when omitted. Per-instance inputs (`emptyMessage`, `emptyText`) still win. Install: `npx base-ui-cli add i18n`.
 
 ### provideBaseUI()
 ```
