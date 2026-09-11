@@ -1,4 +1,28 @@
 {
+  "Base UI table": {
+    "prefix": "base-table",
+    "scope": "html",
+    "body": [
+      "<div class=\"relative w-full overflow-auto\">",
+      "  <table base-table>",
+      "    <caption base-table-caption>${1:A list of recent invoices.}</caption>",
+      "    <thead base-table-header>",
+      "      <tr base-table-row>",
+      "        <th base-table-head>${2:Invoice}</th>",
+      "        <th base-table-head>${3:Status}</th>",
+      "      </tr>",
+      "    </thead>",
+      "    <tbody base-table-body>",
+      "      <tr base-table-row>",
+      "        <td base-table-cell>$0</td>",
+      "        <td base-table-cell></td>",
+      "      </tr>",
+      "    </tbody>",
+      "  </table>",
+      "</div>"
+    ],
+    "description": "Base UI free HTML table. Install: npx base-ui-cli add table --yes"
+  },
   "Base UI card": {
     "prefix": "base-card",
     "scope": "html",

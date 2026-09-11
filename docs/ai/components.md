@@ -255,6 +255,21 @@ The footer section of a base-card. Usually contains action buttons (Save, Cancel
 
 ---
 
+### TableDirective
+**Selector:** `table[base-table]`
+**Standalone:** true
+
+Free HTML table primitive. Directives attach to native `table` / `thead` / `tbody` / `tfoot` / `tr` / `th` / `td` / `caption` so the browser table model stays valid. Extra `class` values merge via `cn()`. For sort, page, select, or resize, use Pro `data-table`. Install: `npx base-ui-cli add table`.
+
+**Inputs:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| class | `string` | '' | Extra classes merged via `cn()`. |
+
+Also: `thead[base-table-header]`, `tbody[base-table-body]`, `tfoot[base-table-footer]`, `tr[base-table-row]`, `th[base-table-head]`, `td[base-table-cell]`, `caption[base-table-caption]` — each takes `class`. Import `TABLE_DIRECTIVES` (or the individual directive classes) from the copied `table/` folder.
+
+---
+
 ### AccordionComponent
 **Selector:** `base-accordion`
 **Standalone:** true
@@ -788,7 +803,7 @@ Countdown timer that renders a horizontal row (`flex gap-2` host) of boxed digit
 **Selector:** `base-data-table`
 **Standalone:** true
 
-Pro tier. Install: `npx base-ui-cli add data-table`. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as `row[column.key]` by default. Override a column with `<ng-template baseTableCell="key" let-row let-value="value">` (import `TableCellDirective`); project `<ng-template baseTableEmpty>` to replace `emptyMessage`. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage` unless `baseTableEmpty` is projected. Checkbox clicks do not emit `rowClick`. Interactive cell widgets should `$event.stopPropagation()` so they do not also fire `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`. Unit tests: `DataTableHarness` with `TestbedHarnessEnvironment.loader(fixture)`.
+Pro tier. Install: `npx base-ui-cli add data-table`. For a static HTML table without sort/page/select, use free `table` (`npx base-ui-cli add table`) instead. Feature-rich table (generic over row type `T extends DataTableRow`) that renders cells as `row[column.key]` by default. Override a column with `<ng-template baseTableCell="key" let-row let-value="value">` (import `TableCellDirective`); project `<ng-template baseTableEmpty>` to replace `emptyMessage`. Client-side sort/page by default; set `serverSide` to skip client sort/slice (parent fetches the current page into `data` and the full count into `totalItems`). Sortable headers (requires both the `sortable` input and `column.sortable`) cycle asc → desc → unsorted, reset to page 1, set `aria-sort`, and support Enter/Space. Pagination is a windowed paginator (max 5 page buttons) when `pageable` is true. `selectable` adds a checkbox column bound to `selected` (identity via `rowKey`, default `'id'`). `resizable` lets users drag header edges (`column.width` start width, `column.minWidth`, per-column `resizable: false` to lock). `virtualize` windows rows in a fixed-height viewport (`viewportHeight`, `rowHeight`) — best with `pageable` off and large `data`. `loading` shows skeleton rows (capped at 5); empty pages show `emptyMessage` unless `baseTableEmpty` is projected. Checkbox clicks do not emit `rowClick`. Interactive cell widgets should `$event.stopPropagation()` so they do not also fire `rowClick`. OnPush; host class `block` merged with `class` via `cn()`. Cookbook: `/cookbooks/invoice-table/`. Unit tests: `DataTableHarness` with `TestbedHarnessEnvironment.loader(fixture)`.
 
 **Inputs:**
 | Name | Type | Default | Description |
