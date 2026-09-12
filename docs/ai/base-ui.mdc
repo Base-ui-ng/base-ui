@@ -11,7 +11,7 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 
 - Install with `npx base-ui-cli add <name> --yes`. Source lands in `src/app/components/<name>/`. Humans can run `npx base-ui-cli add` with no name to pick from the catalog. Never use `add --yes` without a name.
 - Import from that local path. Never `from 'base-ui'` / `@base-ui/*`.
-- Prefer an existing registry item over a custom control. Check `npx base-ui-cli list`, https://base-ui.net/llms.txt, or MCP (`npx -y base-ui-mcp`) before building a dialog, table, combobox, or form control.
+- Prefer an existing registry item over a custom control. Check `npx base-ui-cli list`, https://base-ui.net/llms.txt, or MCP (`npx -y base-ui-ng-mcp`) before building a dialog, table, combobox, or form control.
 - If components look unstyled or icons are missing, run `npx base-ui-cli doctor` (read-only). It checks `base-ui.json`, Angular CDK, Tailwind v4 `@source` paths, `base-ui.css`, and icon sprites.
 - Free items need no license. Pro items need `BASE_UI_LICENSE_KEY` — do not scrape keys or paste Pro source from memory.
 
@@ -54,6 +54,6 @@ You are generating Angular for a project that uses **Base UI (Angular)** at http
 
 ## Agents
 
-- MCP optional: `.cursor/mcp.json` → `npx -y base-ui-mcp` with `BASE_UI_CWD` = this app root.
+- MCP optional: `.cursor/mcp.json` → `npx -y base-ui-ng-mcp` with `BASE_UI_CWD` = this app root.
 - Facts: https://base-ui.net/llms.txt · catalog: https://base-ui.net/docs/ai/components.md
 - Usage snippets (VS Code / Cursor): `.vscode/base-ui.code-snippets` — expand prefixes like `base-card` after the CLI has copied the component in.
