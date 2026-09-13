@@ -109,7 +109,7 @@ Templates are complete, production-grade applications built on Pro — every rou
 - **[Motif](https://base-ui.net/templates/motif)** — an Angular 22 + Tailwind commerce storefront: mega menu, category listing, product detail, cart, checkout, order tracking and an editorial journal. **$149** including Pro. [Live demo](https://commerce-template.base-ui.net/)
 - **[Motif Admin](https://base-ui.net/templates/motif-admin)** — the matching commerce operations dashboard: overview KPIs, orders, inventory, customers, analytics and settings. **$149** including Pro. [Live demo](https://dashboard-template.base-ui.net/overview)
 - **[Relay](https://base-ui.net/templates/relay)** — a Linear-style Angular 22 + Tailwind team workspace: projects, kanban, issues, inbox, calendar, files and docs. **$149** including Pro. [Live demo](https://relay-template.base-ui.net/overview)
-- **Motif Suite** — Motif + Motif Admin + one Pro license for **$199** (save $99 vs buying separately).
+- **Motif Suite** — Motif + Motif Admin + one Pro license for **$169** (save $129 vs buying separately).
 
 ---
 
@@ -123,7 +123,7 @@ Templates are complete, production-grade applications built on Pro — every rou
 | **Page layouts** | — | 18 (dashboard, kanban, inbox, docs, admin table, …) |
 | **Directives, services, utils** | all | — |
 | **Icons** | 390 SVG sprite icons | — |
-| **Templates** | — | [Motif](https://base-ui.net/templates/motif) storefront, [Motif Admin](https://base-ui.net/templates/motif-admin) dashboard, [Relay](https://base-ui.net/templates/relay) workspace ($149 each, or Motif Suite $199) |
+| **Templates** | — | [Motif](https://base-ui.net/templates/motif) storefront, [Motif Admin](https://base-ui.net/templates/motif-admin) dashboard, [Relay](https://base-ui.net/templates/relay) workspace ($149 each, or Motif Suite $169) |
 
 ---
 
@@ -189,7 +189,7 @@ Effectively yes: the same copy-in philosophy — real source in your repo, owned
 125 items are free — every UI primitive, all 19 form blocks, directives, services, utilities — with no account required. 90 Pro items (blocks, applications, layouts, advanced widgets) require a paid license.
 
 **How much does Base UI Pro cost?**  
-A one-time Pro license is $99. The Relay workspace, Motif storefront, and Motif Admin templates are $149 each; the Motif Suite (Motif + Motif Admin + Pro) is $199.
+A one-time Pro license is $99. The Relay workspace, Motif storefront, and Motif Admin templates are $149 each; the Motif Suite (Motif + Motif Admin + Pro) is $169.
 
 **How do I install a component?**  
 npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Omit the name in a terminal to pick from the catalog (filter, then type to select). --yes and CI need explicit names. Components land in src/app/components/<name>/ by default and are yours.
