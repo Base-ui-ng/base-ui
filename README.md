@@ -1,4 +1,4 @@
-> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx ply-ui-cli add button` from [ply-ui.com](https://ply-ui.com).
+> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx ply-ui-cli add button` from [base-ui.net](https://base-ui.net).
 
 # Ply — Angular + Tailwind Component Library
 
@@ -12,7 +12,7 @@
 📝 **Changelog**: [ply-ui.com/changelog](https://ply-ui.com/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/ply-ui-ng/ply/issues)  
 ♿ **Accessibility (ACR)**: [ply-ui.com/accessibility](https://ply-ui.com/accessibility) · `npm run test:a11y`  
 🖥️ **SSR-safe**: the docs site prerenders every catalog route, enforced by a blocking CI job · [how we verify it](https://ply-ui.com/learn/angular-ssr-safe-component-library/)  
-🤖 **AI agents (MCP)**: [ply-ui.com/getting-started#ai-agents-mcp](https://ply-ui.com/getting-started#ai-agents-mcp) · `base-ui-mcp` · [why copy-in UI works better with LLMs](https://ply-ui.com/learn/why-llms-write-better-code-with-copy-in-ui/)  
+🤖 **AI agents (MCP)**: [ply-ui.com/getting-started#ai-agents-mcp](https://ply-ui.com/getting-started#ai-agents-mcp) · `ply-ui-mcp` · [why copy-in UI works better with LLMs](https://ply-ui.com/learn/why-llms-write-better-code-with-copy-in-ui/)  
 🎨 **Figma Design System**: [Figma Community File](https://www.figma.com/community/file/1662825988518656661)  
 ✨ **See what you can build for free**: [Live Admin Dashboard Demo](https://base-ui-free-dashboard-demo.pages.dev/app/dashboard) (Source code: [base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard))
 
@@ -73,11 +73,11 @@ All components are **standalone** — import them from your local components fol
 
 ```typescript
 // app.component.ts (standalone)
-import { CardComponent } from "./components/card/card.component";
-import { BaseButtonDirective } from "./components/button/button.directive";
+import { CardComponent } from './components/card/card.component';
+import { BaseButtonDirective } from './components/button/button.directive';
 
 @Component({
-  selector: "app-root",
+  selector: 'app-root',
   standalone: true,
   imports: [CardComponent, BaseButtonDirective],
   template: `...`,
@@ -108,21 +108,22 @@ Templates are complete, production-grade applications built on Pro — every rou
 
 - **[Motif](https://ply-ui.com/templates/motif)** — an Angular 22 + Tailwind commerce storefront: mega menu, category listing, product detail, cart, checkout, order tracking and an editorial journal. **$149** including Pro. [Live demo](https://commerce-template.ply-ui.com/)
 - **[Motif Admin](https://ply-ui.com/templates/motif-admin)** — the matching commerce operations dashboard: overview KPIs, orders, inventory, customers, analytics and settings. **$149** including Pro. [Live demo](https://dashboard-template.ply-ui.com/overview)
-- **Motif Suite** — both templates + one Pro license for **$199** (save $99 vs buying separately).
+- **[Relay](https://ply-ui.com/templates/relay)** — a Linear-style Angular 22 + Tailwind team workspace: projects, kanban, issues, inbox, calendar, files and docs. **$149** including Pro. [Live demo](https://relay-template.ply-ui.com/overview)
+- **Motif Suite** — Motif + Motif Admin + one Pro license for **$169** (save $129 vs buying separately).
 
 ---
 
 ## 📦 What's included
 
-| Category                        | Free                                                                                                    | Pro                                                                                                                                                           |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **UI primitives**               | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, stacked toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
-| **Form blocks**                 | all 19 (login, signup, checkout, billing, wizard, …)                                                    | —                                                                                                                                                             |
-| **Blocks & widgets**            | —                                                                                                       | blog/article cards, ecommerce blocks, media + social widgets                                                                                                  |
-| **Page layouts**                | —                                                                                                       | 18 (dashboard, kanban, inbox, docs, admin table, …)                                                                                                           |
-| **Directives, services, utils** | all                                                                                                     | —                                                                                                                                                             |
-| **Icons**                       | 390 SVG sprite icons                                                                                    | —                                                                                                                                                             |
-| **Templates**                   | —                                                                                                       | [Motif](https://ply-ui.com/templates/motif) storefront + [Motif Admin](https://ply-ui.com/templates/motif-admin) dashboard ($149 each, or Motif Suite $199)   |
+| Category | Free | Pro |
+| --- | --- | --- |
+| **UI primitives** | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, stacked toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
+| **Form blocks** | all 19 (login, signup, checkout, billing, wizard, …) | — |
+| **Blocks & widgets** | — | blog/article cards, ecommerce blocks, media + social widgets |
+| **Page layouts** | — | 18 (dashboard, kanban, inbox, docs, admin table, …) |
+| **Directives, services, utils** | all | — |
+| **Icons** | 390 SVG sprite icons | — |
+| **Templates** | — | [Motif](https://ply-ui.com/templates/motif) storefront, [Motif Admin](https://ply-ui.com/templates/motif-admin) dashboard, [Relay](https://ply-ui.com/templates/relay) workspace ($149 each, or Motif Suite $169) |
 
 ---
 
@@ -151,7 +152,7 @@ no-ops outside a server render.
 
 For AI agents and LLM-assisted development:
 
-- **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free), plus `init_project`, `doctor`, `diff_components`, `update_components`. Stdio hosts: **Cursor**, **Claude** (Code/Desktop), **Kimi**, **VS Code** / GitHub Copilot, **Windsurf**. ChatGPT/Gemini chat need hosted HTTP (not shipped). Run `npx -y base-ui-mcp`. Setup: [Getting started — AI agents (MCP)](https://ply-ui.com/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
+- **MCP server** — [`ply-ui-mcp`](packages/mcp): catalog tools `list_components`, `search_components`, `get_component`. Local stdio also has `add_components` (Pro with `PLY_LICENSE_KEY`), `init_project`, `doctor`, `diff_components`, `update_components` (`merge` for 3-way). Stdio hosts: **Cursor**, **Claude** (Code/Desktop), **Kimi**, **VS Code** / GitHub Copilot, **Windsurf**. ChatGPT/Gemini chat catalog: [mcp.ply-ui.com/mcp](https://mcp.ply-ui.com/mcp) (read-only; install with `npx ply-ui-cli add <name>`). Run `npx -y ply-ui-mcp` locally to install. Setup: [Getting started — AI agents (MCP)](https://ply-ui.com/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
 - **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [ply-ui.com/docs/ai/components.md](https://ply-ui.com/docs/ai/components.md) and inlined in [llms-full.txt](https://ply-ui.com/llms-full.txt).
 - **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://ply-ui.com/getting-started/#editor-rules), or `npx ply-ui-cli init` writes them when missing.
 - **Cookbooks** — [ply-ui.com/cookbooks](https://ply-ui.com/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
@@ -159,8 +160,8 @@ For AI agents and LLM-assisted development:
 
 ## 🔐 Security & vendor risk
 
-- [SECURITY.md](SECURITY.md) — disclosure policy, every network request the CLI makes, and the supply-chain controls (tokenless releases, signed registry index, per-item digest verification, no install hooks) — including what is _not_ covered.
-- [Enterprise FAQ](docs/enterprise-faq.md) — what you actually depend on, offline/mirror options, continuity guarantees, and an honest account of what this project does _not_ offer.
+- [SECURITY.md](SECURITY.md) — disclosure policy, every network request the CLI makes, and the supply-chain controls (tokenless releases, signed registry index, per-item digest verification, no install hooks) — including what is *not* covered.
+- [Enterprise FAQ](docs/enterprise-faq.md) — what you actually depend on, offline/mirror options, continuity guarantees, and an honest account of what this project does *not* offer.
 
 Verify a release yourself:
 
@@ -168,6 +169,7 @@ Verify a release yourself:
 npm audit signatures                     # npm registry signature for ply-ui-cli
 PLY_REQUIRE_SIGNATURE=1 npx ply-ui-cli add button   # refuse unverified payloads
 ```
+
 
 <!-- answer-bank-faq:start -->
 ## FAQ
@@ -213,7 +215,7 @@ Two guarantees worth calling out, because they are the usual objections to a com
 - **Perpetual use** (§5) — every version delivered to you stays usable forever, with no registry, CLI, or vendor dependency at build or run time. Each release also attaches an offline Pro source archive.
 - **Termination does not reach shipped code** (§7) — a licensing dispute can stop future downloads, but never revokes your right to keep shipping products that already include the components.
 
-The CLI _tool itself_ ([`ply-ui-cli`](https://www.npmjs.com/package/ply-ui-cli)) is separately MIT-licensed — that covers only the tool's own code, not the components it fetches.
+The CLI *tool itself* ([`ply-ui-cli`](https://www.npmjs.com/package/ply-ui-cli)) is separately MIT-licensed — that covers only the tool's own code, not the components it fetches.
 
 ## 🆘 Support
 
