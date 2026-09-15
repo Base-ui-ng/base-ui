@@ -5,7 +5,7 @@ This repository is a **docs and issues hub**. Component source is not stored her
 Please:
 
 1. Close this PR.
-2. Open an [issue](https://github.com/Base-ui-ng/base-ui/issues/new/choose) for a bug or feature, or a [discussion](https://github.com/Base-ui-ng/base-ui/discussions) for a question.
-3. Install components with `npx base-ui-cli add <name>` from [base-ui.net](https://base-ui.net).
+2. Open an [issue](https://github.com/ply-ui-ng/ply/issues/new/choose) for a bug or feature, or a [discussion](https://github.com/ply-ui-ng/ply/discussions) for a question.
+3. Install components with `npx ply-ui-cli add <name>` from [ply-ui.com](https://ply-ui.com).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).

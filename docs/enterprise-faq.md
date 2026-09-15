@@ -10,25 +10,25 @@ ones where the honest answer is not flattering.
 
 There are two distribution paths, and they carry very different risk.
 
-**The CLI path (recommended for enterprise).** `npx base-ui-cli add button`
+**The CLI path (recommended for enterprise).** `npx ply-ui-cli add button`
 copies plain Angular + Tailwind source files into your repository. After that:
 
 - The code is in your version control, reviewed in your pull requests.
-- Your build has **no dependency on Base UI at all** — no package in
+- Your build has **no dependency on Ply at all** — no package in
   `node_modules`, no import of a vendor namespace, no network call at build time
   or run time.
 - Deleting the CLI from your machine changes nothing about your application.
-- You can edit any file freely; `npx base-ui-cli diff` still shows you what
+- You can edit any file freely; `npx ply-ui-cli diff` still shows you what
   changed upstream, and `update` lets you take or ignore it per file.
 
-**There is no npm library path.** Copy-in via `base-ui-cli` is the only supported
-way to consume Base UI. There is no second mode in which you take on a runtime
+**There is no npm library path.** Copy-in via `ply-ui-cli` is the only supported
+way to consume Ply. There is no second mode in which you take on a runtime
 dependency on a vendor package.
 
 ## Is there any phone-home, telemetry, or license check in the components?
 
 No. The component source contains no license validation, no activation, no
-analytics, and no call to any Base UI service. Licensing is enforced
+analytics, and no call to any Ply service. Licensing is enforced
 server-side at download time, once. After a component is on your disk it is
 inert source code.
 
@@ -40,8 +40,8 @@ full request table and how to disable the update check.
 
 ```bash
 npm audit signatures      # npm's registry signature over the tarball
-npm pack base-ui-cli && tar -tzf base-ui-cli-*.tgz    # exactly 4 entries
-node -e "console.log(require('base-ui-cli/package.json').scripts)"   # no install hooks
+npm pack ply-ui-cli && tar -tzf ply-ui-cli-*.tgz    # exactly 4 entries
+node -e "console.log(require('ply-ui-cli/package.json').scripts)"   # no install hooks
 ```
 
 You will not find a Sigstore provenance attestation. npm does not issue them for
@@ -54,11 +54,11 @@ the sale than have you discover it during a security review.
 The package declares no `preinstall`/`postinstall`/`prepare` script, so
 installing it executes no code. Registry downloads are digest-verified against a
 signed index before a single byte is written to disk; set
-`BASE_UI_REQUIRE_SIGNATURE=1` to make verification mandatory in CI.
+`PLY_REQUIRE_SIGNATURE=1` to make verification mandatory in CI.
 
 ## Can I mirror the registry internally?
 
-Yes. Point `BASE_UI_REGISTRY_URL` (and `BASE_UI_PRO_REGISTRY_URL` for Pro) at
+Yes. Point `PLY_REGISTRY_URL` (and `PLY_PRO_REGISTRY_URL` for Pro) at
 your own host serving the same JSON layout. Every release also ships an offline
 Pro payload archive — see the continuity section below.
 
@@ -109,7 +109,7 @@ recall, re-license, or rewrite a released product over a licensing dispute.
 
 | Layer | License |
 |---|---|
-| `base-ui-cli` (the tool) | MIT |
+| `ply-ui-cli` (the tool) | MIT |
 | Free-tier components | Free for unlimited commercial use; may not be redistributed *as a component library* |
 | Pro components | Paid license; same product freedom, same redistribution limit |
 
@@ -127,10 +127,10 @@ Stating the gaps plainly, so they surface in review rather than after purchase:
 - No guarantee of a specific release cadence.
 
 If your procurement process requires any of these, contact
-support@base-ui.net before purchasing rather than assuming they can be added
+support@ply-ui.com before purchasing rather than assuming they can be added
 later.
 
 ## Reporting a security issue
 
-security@base-ui.net. See [SECURITY.md](../SECURITY.md) for scope, response
+security@ply-ui.com. See [SECURITY.md](../SECURITY.md) for scope, response
 targets, and disclosure expectations.

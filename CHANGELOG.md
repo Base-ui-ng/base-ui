@@ -1,12 +1,12 @@
 # Changelog
 
-Library, CLI, and MCP updates for [Base UI (Angular)](https://base-ui.net) — free and Pro components,
+Library, CLI, and MCP updates for [Ply](https://ply-ui.com) — free and Pro components,
 generated from conventional commits that touch `projects/base/src`, `packages/cli/src`,
 `packages/mcp/src`, or `server/pro-registry`.
 
 Demo-site, SEO, analytics, and AI-doc tooling commits are omitted.
 
-Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog).
+Also published at [https://ply-ui.com/changelog](https://ply-ui.com/changelog).
 
 ## September 2026
 
@@ -33,7 +33,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 
 - **Bug Fixes** — convert leftover component CSS to Tailwind and make disabled controls inert.
 - **Bug Fixes** — align radio labels and put identity copy on Open Graph tags.
-- **Bug Fixes** — disambiguate Base UI (Angular) in schema and allow Claude search bots.
+- **Bug Fixes** — disambiguate Ply in schema and allow Claude search bots.
 - **Bug Fixes** — restore smooth shell drawers and polish docs styling.
 - **Bug Fixes** — bind toggle ariaLabel in the axe smoke host and settings layout.
 - **Bug Fixes** — raise AA contrast on badges and active nav, and bind toggle ariaLabel.
@@ -70,14 +70,14 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 - **Chores** — update .gitignore and optimize build process
 - **Features** — add combobox, tags-input, time-picker, and chat to the registry
 - **Bug Fixes** — **scroll-nav:** use one scrollport with a sticky sidebar
-- **Chores** — serve pro registry on pro.base-ui.net
+- **Chores** — serve pro registry on pro.ply-ui.com
 - **Chores** — remove @lussos package names
 - **Bug Fixes** — **breadcrumb:** truncate current crumb on one row
 - **Refactors** — **shell:** move backdrop logic inside main column for improved mobile handling
 - **Bug Fixes** — **app:** restore nested scroll on navigate and browser back
 - **Features** — **cli:** verify registry payloads before writing them to disk
 - **Documentation** — **api:** show CLI-local imports instead of deprecated @lussos/base-ui
-- **Features** — **shell:** unify page and dashboard shells into base-shell
+- **Features** — **shell:** unify page and dashboard shells into ply-shell
 - **Features** — **responsive-nav:** add responsive navigation components
 - **Features** — **stat-card:** introduce metric variant with delta pill and sparkline
 - **Features** — **lightbox:** add free lightbox gallery with alt-initials fallback
@@ -119,7 +119,7 @@ Also published at [https://base-ui.net/changelog](https://base-ui.net/changelog)
 - **Features** — **base:** add free rich-text-editor component
 - **Bug Fixes** — **button:** important text colors so anchor buttons beat prose typography
 - **Features** — **pro-registry:** authenticated worker serving pro components
-- **Features** — **cli:** rename to base-ui-cli with recursive add, list command, working init
+- **Features** — **cli:** rename to ply-ui-cli with recursive add, list command, working init
 - **Bug Fixes** — replace arbitrary spacing values with standard classes in media widgets
 - **Bug Fixes** — update button color in social-widget-image-caption
 - **Refactors** — enhance ScrollNav to support nested scroll containers and add resetSidenavScroll for navigation changes

@@ -1,25 +1,25 @@
-# Contributing to Base UI
+# Contributing to Ply
 
-This repository ([Base-ui-ng/base-ui](https://github.com/Base-ui-ng/base-ui)) is the **public community hub**: README, changelog, license, security policy, issues, and discussions.
+This repository ([ply-ui-ng/base-ui](https://github.com/ply-ui-ng/ply)) is the **public community hub**: README, changelog, license, security policy, issues, and discussions.
 
 Component source is **not** in this repository. Install with:
 
 ```bash
-npx base-ui-cli add button card
+npx ply-ui-cli add button card
 ```
 
-Docs and live previews: [base-ui.net](https://base-ui.net)
+Docs and live previews: [ply-ui.com](https://ply-ui.com)
 
 ## What to open where
 
 | Kind | Where |
 | --- | --- |
-| Bug | [Issue — bug report](https://github.com/Base-ui-ng/base-ui/issues/new?template=bug_report.md) |
-| New component / feature | [Issue — feature request](https://github.com/Base-ui-ng/base-ui/issues/new?template=feature_request.md) |
-| How-to / usage question | [Discussions — Q&A](https://github.com/Base-ui-ng/base-ui/discussions/new?category=q-a) |
-| Something you built | [Discussions — Show and tell](https://github.com/Base-ui-ng/base-ui/discussions/new?category=show-and-tell) |
-| Security vulnerability | Email **security@base-ui.net** — do not open a public issue |
-| License, billing, account | Email **support@base-ui.net** |
+| Bug | [Issue — bug report](https://github.com/ply-ui-ng/ply/issues/new?template=bug_report.md) |
+| New component / feature | [Issue — feature request](https://github.com/ply-ui-ng/ply/issues/new?template=feature_request.md) |
+| How-to / usage question | [Discussions — Q&A](https://github.com/ply-ui-ng/ply/discussions/new?category=q-a) |
+| Something you built | [Discussions — Show and tell](https://github.com/ply-ui-ng/ply/discussions/new?category=show-and-tell) |
+| Security vulnerability | Email **security@ply-ui.com** — do not open a public issue |
+| License, billing, account | Email **support@ply-ui.com** |
 
 Do not paste **license keys**, **Pro component source**, or **authenticated registry URLs** into issues or discussions.
 
@@ -34,7 +34,7 @@ Please file an issue (or a discussion for questions) instead.
 
 ## Related
 
-- Live catalog: [base-ui.net](https://base-ui.net)
+- Live catalog: [ply-ui.com](https://ply-ui.com)
 - Free admin dashboard (source): [lussos/base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard)
-- CLI: [`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli)
-- MCP: [`base-ui-ng-mcp`](https://www.npmjs.com/package/base-ui-ng-mcp)
+- CLI: [`ply-ui-cli`](https://www.npmjs.com/package/ply-ui-cli)
+- MCP: [`ply-ui-mcp`](https://www.npmjs.com/package/ply-ui-mcp)

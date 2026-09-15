@@ -1,61 +1,61 @@
 {
-  "Base UI table": {
-    "prefix": "base-table",
+  "Ply table": {
+    "prefix": "ply-table",
     "scope": "html",
     "body": [
       "<div class=\"relative w-full overflow-auto\">",
-      "  <table base-table>",
-      "    <caption base-table-caption>${1:A list of recent invoices.}</caption>",
-      "    <thead base-table-header>",
-      "      <tr base-table-row>",
-      "        <th base-table-head>${2:Invoice}</th>",
-      "        <th base-table-head>${3:Status}</th>",
+      "  <table ply-table>",
+      "    <caption ply-table-caption>${1:A list of recent invoices.}</caption>",
+      "    <thead ply-table-header>",
+      "      <tr ply-table-row>",
+      "        <th ply-table-head>${2:Invoice}</th>",
+      "        <th ply-table-head>${3:Status}</th>",
       "      </tr>",
       "    </thead>",
-      "    <tbody base-table-body>",
-      "      <tr base-table-row>",
-      "        <td base-table-cell>$0</td>",
-      "        <td base-table-cell></td>",
+      "    <tbody ply-table-body>",
+      "      <tr ply-table-row>",
+      "        <td ply-table-cell>$0</td>",
+      "        <td ply-table-cell></td>",
       "      </tr>",
       "    </tbody>",
       "  </table>",
       "</div>"
     ],
-    "description": "Base UI free HTML table. Install: npx base-ui-cli add table --yes"
+    "description": "Ply free HTML table. Install: npx ply-ui-cli add table --yes"
   },
-  "Base UI card": {
-    "prefix": "base-card",
+  "Ply card": {
+    "prefix": "ply-card",
     "scope": "html",
     "body": [
-      "<base-card>",
-      "  <base-card-header class=\"flex items-center justify-between gap-[8px]\">",
+      "<ply-card>",
+      "  <ply-card-header class=\"flex items-center justify-between gap-[8px]\">",
       "    <h2 class=\"m-0! text-base font-semibold text-slate-900 dark:text-white\">${1:Title}</h2>",
-      "  </base-card-header>",
-      "  <base-card-body class=\"p-[16px]\">",
+      "  </ply-card-header>",
+      "  <ply-card-body class=\"p-[16px]\">",
       "    $0",
-      "  </base-card-body>",
-      "</base-card>"
+      "  </ply-card-body>",
+      "</ply-card>"
     ],
-    "description": "Base UI card usage. Install: npx base-ui-cli add card --yes"
+    "description": "Ply card usage. Install: npx ply-ui-cli add card --yes"
   },
-  "Base UI button": {
-    "prefix": "base-button",
+  "Ply button": {
+    "prefix": "ply-button",
     "scope": "html",
     "body": [
-      "<button type=\"button\" base-button color=\"${1:primary}\">${2:Save}</button>"
+      "<button type=\"button\" ply-button color=\"${1:primary}\">${2:Save}</button>"
     ],
-    "description": "Base UI filled button directive. Install: npx base-ui-cli add button --yes"
+    "description": "Ply filled button directive. Install: npx ply-ui-cli add button --yes"
   },
-  "Base UI stroked button": {
-    "prefix": "base-stroked-button",
+  "Ply stroked button": {
+    "prefix": "ply-stroked-button",
     "scope": "html",
     "body": [
-      "<button type=\"button\" base-stroked-button color=\"${1:default}\">${2:Cancel}</button>"
+      "<button type=\"button\" ply-stroked-button color=\"${1:default}\">${2:Cancel}</button>"
     ],
-    "description": "Base UI stroked button directive. Install: npx base-ui-cli add button --yes"
+    "description": "Ply stroked button directive. Install: npx ply-ui-cli add button --yes"
   },
-  "Base UI dialog open": {
-    "prefix": "base-dialog",
+  "Ply dialog open": {
+    "prefix": "ply-dialog",
     "scope": "typescript",
     "body": [
       "this.dialog.open(${1:MyDialogComponent}).subscribe((result) => {",
@@ -63,10 +63,10 @@
       "  $0",
       "});"
     ],
-    "description": "Open a Base UI dialog. Install: npx base-ui-cli add dialog --yes"
+    "description": "Open a Base UI dialog. Install: npx ply-ui-cli add dialog --yes"
   },
-  "Base UI dialog confirm": {
-    "prefix": "base-confirm",
+  "Ply dialog confirm": {
+    "prefix": "ply-confirm",
     "scope": "typescript",
     "body": [
       "this.dialog.confirm({",
@@ -78,72 +78,72 @@
       "  $0",
       "});"
     ],
-    "description": "Confirm dialog. Install: npx base-ui-cli add dialog --yes"
+    "description": "Confirm dialog. Install: npx ply-ui-cli add dialog --yes"
   },
-  "Base UI password input": {
-    "prefix": "base-password",
+  "Ply password input": {
+    "prefix": "ply-password",
     "scope": "html",
     "body": [
-      "<base-password-input label=\"${1:Password}\" [(ngModel)]=\"${2:password}\" [showStrength]=\"true\">",
-      "  <base-error>${3:Password is required}</base-error>",
-      "</base-password-input>"
+      "<ply-password-input label=\"${1:Password}\" [(ngModel)]=\"${2:password}\" [showStrength]=\"true\">",
+      "  <ply-error>${3:Password is required}</ply-error>",
+      "</ply-password-input>"
     ],
-    "description": "Password field with show/hide. Install: npx base-ui-cli add password-input --yes"
+    "description": "Password field with show/hide. Install: npx ply-ui-cli add password-input --yes"
   },
-  "Base UI input group": {
-    "prefix": "base-input",
+  "Ply input group": {
+    "prefix": "ply-input",
     "scope": "html",
     "body": [
-      "<base-input-group>",
-      "  <base-label>${1:Label}</base-label>",
-      "  <input base-input [(ngModel)]=\"${2:value}\" autocomplete=\"off\" />",
-      "</base-input-group>"
+      "<ply-input-group>",
+      "  <ply-label>${1:Label}</ply-label>",
+      "  <input ply-input [(ngModel)]=\"${2:value}\" autocomplete=\"off\" />",
+      "</ply-input-group>"
     ],
-    "description": "Native input with base-input. Install: npx base-ui-cli add input --yes"
+    "description": "Native input with ply-input. Install: npx ply-ui-cli add input --yes"
   },
-  "Base UI textarea": {
-    "prefix": "base-textarea",
+  "Ply textarea": {
+    "prefix": "ply-textarea",
     "scope": "html",
     "body": [
-      "<base-input-group>",
-      "  <base-label>${1:Notes}</base-label>",
-      "  <textarea base-textarea rows=\"4\" [(ngModel)]=\"${2:notes}\"></textarea>",
-      "</base-input-group>"
+      "<ply-input-group>",
+      "  <ply-label>${1:Notes}</ply-label>",
+      "  <textarea ply-textarea rows=\"4\" [(ngModel)]=\"${2:notes}\"></textarea>",
+      "</ply-input-group>"
     ],
-    "description": "Native textarea with base-textarea. Install: npx base-ui-cli add input --yes"
+    "description": "Native textarea with ply-textarea. Install: npx ply-ui-cli add input --yes"
   },
-  "Base UI combobox": {
-    "prefix": "base-combobox",
+  "Ply combobox": {
+    "prefix": "ply-combobox",
     "scope": "html",
     "body": [
-      "<base-combobox",
+      "<ply-combobox",
       "  label=\"${1:Choice}\"",
       "  [options]=\"${2:options}\"",
       "  [(ngModel)]=\"${3:value}\">",
-      "  <ng-template baseComboboxOption let-option>",
+      "  <ng-template plyComboboxOption let-option>",
       "    $0",
       "  </ng-template>",
-      "</base-combobox>"
+      "</ply-combobox>"
     ],
-    "description": "Searchable select with optional option template. Bind ngModel on the host. Install: npx base-ui-cli add combobox --yes"
+    "description": "Searchable select with optional option template. Bind ngModel on the host. Install: npx ply-ui-cli add combobox --yes"
   },
-  "Base UI select": {
-    "prefix": "base-select",
+  "Ply select": {
+    "prefix": "ply-select",
     "scope": "html",
     "body": [
-      "<base-custom-select",
+      "<ply-custom-select",
       "  label=\"${1:Choice}\"",
       "  [options]=\"${2:options}\"",
       "  [(ngModel)]=\"${3:value}\">",
-      "  <ng-template baseSelectOption let-label=\"label\">",
+      "  <ng-template plySelectOption let-label=\"label\">",
       "    $0",
       "  </ng-template>",
-      "</base-custom-select>"
+      "</ply-custom-select>"
     ],
-    "description": "Custom select CVA host with optional option template. Install: npx base-ui-cli add custom-select --yes"
+    "description": "Custom select CVA host with optional option template. Install: npx ply-ui-cli add custom-select --yes"
   },
-  "Base UI toggle": {
-    "prefix": "base-toggle",
+  "Ply toggle": {
+    "prefix": "ply-toggle",
     "scope": "html",
     "body": [
       "<div class=\"flex items-center justify-between gap-[12px] rounded-lg border border-slate-200 px-[16px] py-[12px] dark:border-slate-700\">",
@@ -151,47 +151,47 @@
       "    <p class=\"m-0! text-sm font-medium text-slate-900 dark:text-white\">${1:Product emails}</p>",
       "    <p class=\"mb-0! mt-[2px] text-xs text-slate-500\">${2:Occasional tips.}</p>",
       "  </div>",
-      "  <base-toggle [(ngModel)]=\"${3:enabled}\"></base-toggle>",
+      "  <ply-toggle [(ngModel)]=\"${3:enabled}\"></ply-toggle>",
       "</div>"
     ],
-    "description": "Toggle CVA host. Install: npx base-ui-cli add toggle --yes"
+    "description": "Toggle CVA host. Install: npx ply-ui-cli add toggle --yes"
   },
-  "Base UI tags input": {
-    "prefix": "base-tags-input",
+  "Ply tags input": {
+    "prefix": "ply-tags-input",
     "scope": "html",
     "body": [
-      "<base-label>${1:Tags}</base-label>",
-      "<base-tags-input class=\"mt-[4px]\" [(ngModel)]=\"${2:tags}\" placeholder=\"${3:Add a tag…}\"></base-tags-input>"
+      "<ply-label>${1:Tags}</ply-label>",
+      "<ply-tags-input class=\"mt-[4px]\" [(ngModel)]=\"${2:tags}\" placeholder=\"${3:Add a tag…}\"></ply-tags-input>"
     ],
-    "description": "Chip tags CVA host. Install: npx base-ui-cli add tags-input --yes"
+    "description": "Chip tags CVA host. Install: npx ply-ui-cli add tags-input --yes"
   },
-  "Base UI checkbox": {
-    "prefix": "base-checkbox",
+  "Ply checkbox": {
+    "prefix": "ply-checkbox",
     "scope": "html",
     "body": [
-      "<base-checkbox [(ngModel)]=\"${1:checked}\">${2:Remember me}</base-checkbox>"
+      "<ply-checkbox [(ngModel)]=\"${1:checked}\">${2:Remember me}</ply-checkbox>"
     ],
-    "description": "Checkbox. Install: npx base-ui-cli add checkbox --yes"
+    "description": "Checkbox. Install: npx ply-ui-cli add checkbox --yes"
   },
-  "Base UI chat": {
-    "prefix": "base-chat",
+  "Ply chat": {
+    "prefix": "ply-chat",
     "scope": "html",
     "body": [
-      "<base-chat",
+      "<ply-chat",
       "  [messages]=\"${1:messages}()\"",
       "  [streaming]=\"${2:streaming}()\"",
       "  placeholder=\"${3:Ask…}\"",
       "  (send)=\"${4:onSend}($event)\"",
       "  (stop)=\"${5:stop}()\">",
-      "</base-chat>"
+      "</ply-chat>"
     ],
-    "description": "AI chat kit. Install: npx base-ui-cli add chat --yes"
+    "description": "AI chat kit. Install: npx ply-ui-cli add chat --yes"
   },
-  "Base UI data table": {
-    "prefix": "base-data-table",
+  "Ply data table": {
+    "prefix": "ply-data-table",
     "scope": "html",
     "body": [
-      "<base-data-table",
+      "<ply-data-table",
       "  [columns]=\"${1:columns}\"",
       "  [data]=\"${2:rows}\"",
       "  [loading]=\"${3:loading}()\"",
@@ -206,74 +206,74 @@
       "  [(selected)]=\"${6:selected}\"",
       "  (pageChange)=\"${7:fetch}($event)\"",
       "  (sortChange)=\"${8:onSort}($event)\">",
-      "  <ng-template baseTableCell=\"${9:status}\" let-value=\"value\">",
+      "  <ng-template plyTableCell=\"${9:status}\" let-value=\"value\">",
       "    $0",
       "  </ng-template>",
-      "</base-data-table>"
+      "</ply-data-table>"
     ],
-    "description": "Pro data table with optional cell templates. Install: npx base-ui-cli add data-table --yes"
+    "description": "Pro data table with optional cell templates. Install: npx ply-ui-cli add data-table --yes"
   },
-  "Base UI tabs": {
-    "prefix": "base-tabs",
+  "Ply tabs": {
+    "prefix": "ply-tabs",
     "scope": "html",
     "body": [
-      "<base-tabs [defaultTab]=\"${1:0}\">",
-      "  <base-tab label=\"${2:Overview}\"><base-tab-body>$0</base-tab-body></base-tab>",
-      "  <base-tab label=\"${3:Activity}\"><base-tab-body></base-tab-body></base-tab>",
-      "</base-tabs>"
+      "<ply-tabs [defaultTab]=\"${1:0}\">",
+      "  <ply-tab label=\"${2:Overview}\"><ply-tab-body>$0</ply-tab-body></ply-tab>",
+      "  <ply-tab label=\"${3:Activity}\"><ply-tab-body></ply-tab-body></ply-tab>",
+      "</ply-tabs>"
     ],
-    "description": "Tabs. Install: npx base-ui-cli add tabs --yes"
+    "description": "Tabs. Install: npx ply-ui-cli add tabs --yes"
   },
-  "Base UI alert": {
-    "prefix": "base-alert",
+  "Ply alert": {
+    "prefix": "ply-alert",
     "scope": "html",
     "body": [
-      "<base-alert color=\"${1:info}\">${2:Saved.}</base-alert>"
+      "<ply-alert color=\"${1:info}\">${2:Saved.}</ply-alert>"
     ],
-    "description": "Alert. Install: npx base-ui-cli add alert --yes"
+    "description": "Alert. Install: npx ply-ui-cli add alert --yes"
   },
-  "Base UI badge": {
-    "prefix": "base-badge",
+  "Ply badge": {
+    "prefix": "ply-badge",
     "scope": "html",
     "body": [
-      "<base-badge color=\"${1:primary-light}\" size=\"sm\">${2:New}</base-badge>"
+      "<ply-badge color=\"${1:primary-light}\" size=\"sm\">${2:New}</ply-badge>"
     ],
-    "description": "Badge. Install: npx base-ui-cli add badge --yes"
+    "description": "Badge. Install: npx ply-ui-cli add badge --yes"
   },
-  "Base UI skeleton": {
-    "prefix": "base-skeleton",
+  "Ply skeleton": {
+    "prefix": "ply-skeleton",
     "scope": "html",
     "body": [
-      "<base-skeleton variant=\"${1:rectangular}\" width=\"${2:100%}\" height=\"${3:16rem}\"></base-skeleton>"
+      "<ply-skeleton variant=\"${1:rectangular}\" width=\"${2:100%}\" height=\"${3:16rem}\"></ply-skeleton>"
     ],
-    "description": "Skeleton placeholder. Install: npx base-ui-cli add skeleton --yes"
+    "description": "Skeleton placeholder. Install: npx ply-ui-cli add skeleton --yes"
   },
-  "Base UI empty state": {
-    "prefix": "base-empty-state",
+  "Ply empty state": {
+    "prefix": "ply-empty-state",
     "scope": "html",
     "body": [
-      "<base-empty-state title=\"${1:Nothing here}\" description=\"${2:Try a different filter.}\"></base-empty-state>"
+      "<ply-empty-state title=\"${1:Nothing here}\" description=\"${2:Try a different filter.}\"></ply-empty-state>"
     ],
-    "description": "Empty state. Install: npx base-ui-cli add empty-state --yes"
+    "description": "Empty state. Install: npx ply-ui-cli add empty-state --yes"
   },
-  "Base UI toast": {
-    "prefix": "base-toast",
+  "Ply toast": {
+    "prefix": "ply-toast",
     "scope": "typescript",
     "body": [
       "this.toast.success('${1:Saved}', { duration: ${2:2500} });"
     ],
-    "description": "Toast via ToastService. Install: npx base-ui-cli add toast --yes. Do not add base-toast-container to templates."
+    "description": "Toast via ToastService. Install: npx ply-ui-cli add toast --yes. Do not add ply-toast-container to templates."
   },
-  "Base UI icon": {
-    "prefix": "base-icon",
+  "Ply icon": {
+    "prefix": "ply-icon",
     "scope": "html",
     "body": [
-      "<base-icon name=\"${1:chevron-right}\" class=\"h-4 w-4 stroke-slate-500 dark:stroke-slate-300\"></base-icon>"
+      "<ply-icon name=\"${1:chevron-right}\" class=\"h-4 w-4 stroke-slate-500 dark:stroke-slate-300\"></ply-icon>"
     ],
-    "description": "Outline icon (stroke-*). Filled: [filled]=\"true\" + text-*. Install: npx base-ui-cli add icon --yes"
+    "description": "Outline icon (stroke-*). Filled: [filled]=\"true\" + text-*. Install: npx ply-ui-cli add icon --yes"
   },
-  "Base UI standalone component": {
-    "prefix": "base-standalone",
+  "Ply standalone component": {
+    "prefix": "ply-standalone",
     "scope": "typescript",
     "body": [
       "import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';",
@@ -282,9 +282,9 @@
       "  selector: 'app-${1:feature}',",
       "  changeDetection: ChangeDetectionStrategy.OnPush,",
       "  template: `",
-      "    <base-card>",
-      "      <base-card-body class=\"p-[16px]\">$0</base-card-body>",
-      "    </base-card>",
+      "    <ply-card>",
+      "      <ply-card-body class=\"p-[16px]\">$0</ply-card-body>",
+      "    </ply-card>",
       "  `,",
       "})",
       "export class ${2:Feature}Component {",
@@ -292,10 +292,10 @@
       "  readonly saved = output<void>();",
       "}"
     ],
-    "description": "Standalone OnPush component with signal input/output and a Base UI card"
+    "description": "Standalone OnPush component with signal input/output and a Ply card"
   },
-  "Base UI i18n": {
-    "prefix": "base-i18n",
+  "Ply i18n": {
+    "prefix": "ply-i18n",
     "scope": "typescript",
     "body": [
       "provideBaseUiI18n({",
@@ -304,10 +304,10 @@
       "  noResults: '${3:Aucun résultat}'",
       "})"
     ],
-    "description": "Chrome-string dictionary for empty states, paginator, and dialog close. Install: npx base-ui-cli add i18n --yes"
+    "description": "Chrome-string dictionary for empty states, paginator, and dialog close. Install: npx ply-ui-cli add i18n --yes"
   },
-  "Base UI config": {
-    "prefix": "base-config",
+  "Ply config": {
+    "prefix": "ply-config",
     "scope": "typescript",
     "body": [
       "provideBaseUI({",
@@ -316,10 +316,10 @@
       "  defaultSize: ${3:20}",
       "})"
     ],
-    "description": "Library defaults for icon sprites and default icon size. Install: npx base-ui-cli add config --yes"
+    "description": "Library defaults for icon sprites and default icon size. Install: npx ply-ui-cli add config --yes"
   },
-  "Base UI harness": {
-    "prefix": "base-harness",
+  "Ply harness": {
+    "prefix": "ply-harness",
     "scope": "typescript",
     "body": [
       "import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';",

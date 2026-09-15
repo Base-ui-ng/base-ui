@@ -1,12 +1,12 @@
 # Security Policy
 
-Base UI ships code that other people run. This document states what the tooling
+Ply ships code that other people run. This document states what the tooling
 does on your machine, how to report a problem, and what you can verify yourself
 rather than take on trust.
 
 ## Reporting a vulnerability
 
-Email **security@base-ui.net** with a description, affected versions, and a
+Email **security@ply-ui.com** with a description, affected versions, and a
 reproduction. Please do not open a public issue for an unfixed vulnerability.
 
 | | Target |
@@ -26,27 +26,27 @@ in the changelog unless you prefer to stay anonymous.
 
 | Component | Supported |
 |---|---|
-| `base-ui-cli` | latest minor |
-| `base-ui-ng-mcp` | latest minor |
-| Component source copied into your project | you own it — pull fixes with `npx base-ui-cli update` |
+| `ply-ui-cli` | latest minor |
+| `ply-ui-mcp` | latest minor |
+| Component source copied into your project | you own it — pull fixes with `npx ply-ui-cli update` |
 
 ## What the CLI does on your machine
 
-`base-ui-cli` makes **outbound `GET` requests only**. It never sends a `POST`,
+`ply-ui-cli` makes **outbound `GET` requests only**. It never sends a `POST`,
 never transmits your source code, environment variables, credentials, or
 telemetry, and has no analytics of any kind.
 
 | Request | When | Sends |
 |---|---|---|
-| `GET base-ui.net/registry/index.json` | `add`, `list`, `diff`, `update` | nothing |
-| `GET base-ui.net/registry/index.json.sig` | same as above | nothing |
-| `GET base-ui.net/registry/styles/default/<name>.json` | free component install | nothing |
-| `GET pro.base-ui.net/registry/...` | pro component install | your license key, as a bearer token |
-| `GET base-ui.net/assets/icons*.svg` | `init` | nothing |
+| `GET ply-ui.com/registry/index.json` | `add`, `list`, `diff`, `update` | nothing |
+| `GET ply-ui.com/registry/index.json.sig` | same as above | nothing |
+| `GET ply-ui.com/registry/styles/default/<name>.json` | free component install | nothing |
+| `GET pro.ply-ui.com/registry/...` | pro component install | your license key, as a bearer token |
+| `GET ply-ui.com/assets/icons*.svg` | `init` | nothing |
 
-The only environment variables read are `BASE_UI_LICENSE_KEY`,
-`BASE_UI_REGISTRY_URL`, `BASE_UI_PRO_REGISTRY_URL`, `BASE_UI_REQUIRE_SIGNATURE`,
-`BASE_UI_CLI_PATH`, and `BASE_UI_CWD`.
+The environment variables read are `PLY_LICENSE_KEY`,
+`PLY_REGISTRY_URL`, `PLY_PRO_REGISTRY_URL`, `PLY_REQUIRE_SIGNATURE`,
+`PLY_CLI_PATH`, and `PLY_CWD`. The matching `BASE_UI_*` names still work.
 
 Files written on your machine: components under your configured alias,
 `base-ui.json`, `base-ui-lock.json`, `base-ui.css` next to your global
@@ -56,35 +56,35 @@ stylesheet, the icon sprites, and an `assets` entry in `angular.json`.
 
 ```bash
 # Refuse to install anything that is not signed and digest-verified
-export BASE_UI_REQUIRE_SIGNATURE=1
+export PLY_REQUIRE_SIGNATURE=1
 
 # Point the CLI at your own mirror
-export BASE_UI_REGISTRY_URL=https://registry.internal.example.com/registry
+export PLY_REGISTRY_URL=https://registry.internal.example.com/registry
 ```
 
 ## Supply-chain controls
 
 **No install hooks.** The published package declares no `preinstall`,
-`postinstall`, or `prepare` script. `npm install base-ui-cli` executes no code.
+`postinstall`, or `prepare` script. `npm install ply-ui-cli` executes no code.
 This is the vector used by essentially every real npm compromise, and it is
 closed by construction.
 
 **Tokenless releases.** Releases publish from GitHub Actions via npm Trusted
 Publishing (OIDC). No long-lived npm token exists to leak or be stolen: npm
-accepts a publish of `base-ui-cli` only from this repository's `deploy.yml`,
+accepts a publish of `ply-ui-cli` only from this repository's `deploy.yml`,
 authenticated by a short-lived workflow credential. Every published tarball
 carries a registry signature:
 
 ```bash
 npm audit signatures          # verifies npm's registry signature
-npm view base-ui-cli dist.signatures
+npm view ply-ui-cli dist.signatures
 ```
 
 **No Sigstore provenance, and why.** npm does not issue provenance attestations
 for packages built from a *private* source repository — a
 [documented limitation](https://github.blog/changelog/2023-07-25-publishing-with-npm-provenance-from-private-source-repositories-is-no-longer-supported/)
 that applies even when the package itself is public. This repository is private
-because it contains the pro catalog, so `npm view base-ui-cli dist.attestations`
+because it contains the pro catalog, so `npm view ply-ui-cli dist.attestations`
 is empty and no attestation ties a tarball to a commit SHA. We would rather say
 so than imply a guarantee that does not exist.
 
@@ -118,13 +118,13 @@ names from the registry are still validated against the npm name grammar before
 they are shown.
 
 **Change tracking.** `base-ui-lock.json` records a SHA-256 for every installed
-file, so `npx base-ui-cli diff` shows exactly what upstream changed and what you
+file, so `npx ply-ui-cli diff` shows exactly what upstream changed and what you
 changed, and `update` never silently overwrites your edits.
 
 **Dependency footprint.** The published tarball has **no runtime npm
 dependencies** — `diff`, `ora`, `prompts`, and `zod` are bundled into
 `dist/index.js` at publish time. CI blocks a release when the shipped tree of **either**
-published package (`base-ui-cli` or `base-ui-ng-mcp`) carries a moderate or
+published package (`ply-ui-cli` or `ply-ui-mcp`) carries a moderate or
 higher advisory, and asserts the CLI tarball contains nothing but `dist/`,
 `README.md`, `LICENSE`, and `package.json`. Both packages currently report zero
 vulnerabilities in their shipped trees:
@@ -142,10 +142,10 @@ between the audit passing and the artifact being published.
 ## Verifying a release yourself
 
 ```bash
-npm view base-ui-cli versions
-npm pack base-ui-cli && tar -tzf base-ui-cli-*.tgz   # inspect the file list
+npm view ply-ui-cli versions
+npm pack ply-ui-cli && tar -tzf ply-ui-cli-*.tgz   # inspect the file list
 npm audit signatures                                  # npm registry signature
-node -e "console.log(require('base-ui-cli/package.json').scripts)"  # no install hooks
+node -e "console.log(require('ply-ui-cli/package.json').scripts)"  # no install hooks
 ```
 
 The published `dist/index.js` is the CLI dispatcher only. Registry HTTP lives in
@@ -159,4 +159,4 @@ source can request read access to `packages/cli` under NDA.
 
 Bypasses of the pro registry's license validation are commercial issues, not
 security vulnerabilities, and are out of scope for coordinated disclosure. Email
-support@base-ui.net instead.
+support@ply-ui.com instead.

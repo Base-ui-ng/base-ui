@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Share something you built with Base UI. Do not paste license keys or Pro source.
+        Share something you built with Ply. Do not paste license keys or Pro source.
   - type: textarea
     id: what
     attributes:

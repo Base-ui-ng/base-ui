@@ -1,18 +1,18 @@
-> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx base-ui-cli add button` from [base-ui.net](https://base-ui.net).
+> **Community hub.** Star this repository, open issues, and follow the changelog. Component source is **not** stored here — install with `npx ply-ui-cli add button` from [ply-ui.com](https://ply-ui.com).
 
-# Base UI (Angular) — Angular + Tailwind Component Library
+# Ply — Angular + Tailwind Component Library
 
-[![npm](https://img.shields.io/npm/v/base-ui-cli.svg)](https://www.npmjs.com/package/base-ui-cli)
-[![npm downloads](https://img.shields.io/npm/dw/base-ui-cli.svg)](https://www.npmjs.com/package/base-ui-cli)
-[![GitHub stars](https://img.shields.io/github/stars/Base-ui-ng/base-ui?style=social)](https://github.com/Base-ui-ng/base-ui)
+[![npm](https://img.shields.io/npm/v/ply-ui-cli.svg)](https://www.npmjs.com/package/ply-ui-cli)
+[![npm downloads](https://img.shields.io/npm/dw/ply-ui-cli.svg)](https://www.npmjs.com/package/ply-ui-cli)
+[![GitHub stars](https://img.shields.io/github/stars/ply-ui-ng/base-ui?style=social)](https://github.com/ply-ui-ng/ply)
 
-**Base UI (Angular)** — [base-ui.net](https://base-ui.net) — is a CLI-first Angular + Tailwind CSS component library: **215 components and blocks** (125 free, 90 Pro), **390 icons**, and 18 full page layouts — standalone, zoneless, signal-based and **SSR-safe**, delivered shadcn-style: `npx base-ui-cli add` copies the source into your project and it's yours. Not [MUI Base UI](https://base-ui.com) (React).
+**Ply** — [ply-ui.com](https://ply-ui.com) — is a CLI-first Angular + Tailwind CSS component library: **215 components and blocks** (125 free, 90 Pro), **390 icons**, and 18 full page layouts — standalone, zoneless, signal-based and **SSR-safe**, delivered shadcn-style: `npx ply-ui-cli add` copies the source into your project and it's yours. Not [MUI Base UI](https://base-ui.com) (React).
 
-📚 **Documentation & live previews**: [base-ui.net](https://base-ui.net)  
-📝 **Changelog**: [base-ui.net/changelog](https://base-ui.net/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/Base-ui-ng/base-ui/issues)  
-♿ **Accessibility (ACR)**: [base-ui.net/accessibility](https://base-ui.net/accessibility) · `npm run test:a11y`  
-🖥️ **SSR-safe**: the docs site prerenders every catalog route, enforced by a blocking CI job · [how we verify it](https://base-ui.net/learn/angular-ssr-safe-component-library/)  
-🤖 **AI agents (MCP)**: [base-ui.net/getting-started#ai-agents-mcp](https://base-ui.net/getting-started#ai-agents-mcp) · `base-ui-ng-mcp` · [why copy-in UI works better with LLMs](https://base-ui.net/learn/why-llms-write-better-code-with-copy-in-ui/)  
+📚 **Documentation & live previews**: [ply-ui.com](https://ply-ui.com)  
+📝 **Changelog**: [ply-ui.com/changelog](https://ply-ui.com/changelog) · [CHANGELOG.md](CHANGELOG.md) · [Issues](https://github.com/ply-ui-ng/ply/issues)  
+♿ **Accessibility (ACR)**: [ply-ui.com/accessibility](https://ply-ui.com/accessibility) · `npm run test:a11y`  
+🖥️ **SSR-safe**: the docs site prerenders every catalog route, enforced by a blocking CI job · [how we verify it](https://ply-ui.com/learn/angular-ssr-safe-component-library/)  
+🤖 **AI agents (MCP)**: [ply-ui.com/getting-started#ai-agents-mcp](https://ply-ui.com/getting-started#ai-agents-mcp) · `base-ui-mcp` · [why copy-in UI works better with LLMs](https://ply-ui.com/learn/why-llms-write-better-code-with-copy-in-ui/)  
 🎨 **Figma Design System**: [Figma Community File](https://www.figma.com/community/file/1662825988518656661)  
 ✨ **See what you can build for free**: [Live Admin Dashboard Demo](https://base-ui-free-dashboard-demo.pages.dev/app/dashboard) (Source code: [base-ui-free-dashboard](https://github.com/lussos/base-ui-free-dashboard))
 
@@ -25,14 +25,14 @@ The free tier is production-ready with no account or license: **all primitives**
 ### 1. Initialize your project
 
 ```bash
-npx base-ui-cli init
+npx ply-ui-cli init
 ```
 
 This writes `base-ui.json`, creates `base-ui.css` (CDK overlay styles, keyframes, autofill fixes) imported from your global stylesheet, and downloads the icon sprites into your assets folder. Use `--yes` to accept defaults non-interactively.
 
 ### 2. Configure Tailwind CSS
 
-Base UI works with **standard Tailwind CSS 4** — no custom theme file required.
+Ply works with **standard Tailwind CSS 4** — no custom theme file required.
 
 1. Install Tailwind CSS 4 and PostCSS ([installation guide](https://tailwindcss.com/docs/installation)).
 2. Create `src/tailwind.css`, register it in `angular.json` **before** global SCSS, and point `@source` at your templates:
@@ -53,19 +53,19 @@ Components use standard Tailwind spacing (e.g. `p-4`) and standard colors (`blue
 }
 ```
 
-Use [Theme Studio](https://base-ui.net/theme/) (or the docs customizer) to export a full 50–950 scale as a Tailwind v4 `@theme` block. Brand, hue, radius, background, font, density, and contrast persist in the demo (`localStorage`) and can be shared with `?theme=nord&radius=0.75&bg=zinc&font=inter&density=compact`.
+Use [Theme Studio](https://ply-ui.com/theme/) (or the docs customizer) to export a full 50–950 scale as a Tailwind v4 `@theme` block. Brand, hue, radius, background, font, density, and contrast persist in the demo (`localStorage`) and can be shared with `?theme=nord&radius=0.75&bg=zinc&font=inter&density=compact`.
 
 ### 3. Add components
 
 ```bash
-npx base-ui-cli add button card dialog
+npx ply-ui-cli add button card dialog
 ```
 
-Omit the name (`npx base-ui-cli add`) in a terminal to pick from the catalog. Pass names plus `--yes` in CI and for agents.
+Omit the name (`npx ply-ui-cli add`) in a terminal to pick from the catalog. Pass names plus `--yes` in CI and for agents.
 
-Component dependencies are resolved recursively, and missing npm packages are installed with your package manager automatically. Run `npx base-ui-cli list` to see everything that's available.
+Component dependencies are resolved recursively, and missing npm packages are installed with your package manager automatically. Run `npx ply-ui-cli list` to see everything that's available.
 
-If a component looks unstyled or icons are missing, `npx base-ui-cli doctor` checks `base-ui.json`, Tailwind, CDK, and the icon sprites (read-only). Later, `npx base-ui-cli diff` shows what's changed upstream for components you've already installed, and `npx base-ui-cli update` pulls those changes in — automatically for files you haven't touched, interactively (keep / take upstream / save side-by-side) for anything you've customized that also changed upstream. See [`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli) for details.
+If a component looks unstyled or icons are missing, `npx ply-ui-cli doctor` checks `base-ui.json`, Tailwind, CDK, and the icon sprites (read-only). Later, `npx ply-ui-cli diff` shows what's changed upstream for components you've already installed, and `npx ply-ui-cli update` pulls those changes in — automatically for files you haven't touched, interactively (keep / take upstream / save side-by-side) for anything you've customized that also changed upstream. See [`ply-ui-cli`](https://www.npmjs.com/package/ply-ui-cli) for details.
 
 ### 4. Import in your Angular app
 
@@ -73,11 +73,11 @@ All components are **standalone** — import them from your local components fol
 
 ```typescript
 // app.component.ts (standalone)
-import { CardComponent } from './components/card/card.component';
-import { BaseButtonDirective } from './components/button/button.directive';
+import { CardComponent } from "./components/card/card.component";
+import { BaseButtonDirective } from "./components/button/button.directive";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [CardComponent, BaseButtonDirective],
   template: `...`,
@@ -87,43 +87,42 @@ export class AppComponent {}
 
 ---
 
-## 💎 Base UI Pro
+## 💎 Ply Pro
 
 Pro components are the pre-built blocks — blog and article cards, ecommerce blocks, media and social widgets, 18 full page layouts — plus advanced widgets (data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter).
 
-After purchasing a license at [base-ui.net](https://base-ui.net), set your license key once and add pro components with the same CLI:
+After purchasing a license at [ply-ui.com](https://ply-ui.com), set your license key once and add pro components with the same CLI:
 
 ```bash
-export BASE_UI_LICENSE_KEY=your-license-key
-npx base-ui-cli add layout-dashboard blog-card-gradient-hero
+export PLY_LICENSE_KEY=your-license-key
+npx ply-ui-cli add layout-dashboard blog-card-gradient-hero
 ```
 
-The key is validated server-side by the pro registry on every fetch. In CI, set `BASE_UI_LICENSE_KEY` as a secret.
+The key is validated server-side by the pro registry on every fetch. In CI, set `PLY_LICENSE_KEY` as a secret.
 
 ---
 
 ## 🛍️ Templates
 
-Templates are complete, production-grade applications built on Pro — every route wired up, shipped as source you own. Each bundle includes a Base UI Pro license.
+Templates are complete, production-grade applications built on Pro — every route wired up, shipped as source you own. Each bundle includes a Ply Pro license.
 
-- **[Motif](https://base-ui.net/templates/motif)** — an Angular 22 + Tailwind commerce storefront: mega menu, category listing, product detail, cart, checkout, order tracking and an editorial journal. **$149** including Pro. [Live demo](https://commerce-template.base-ui.net/)
-- **[Motif Admin](https://base-ui.net/templates/motif-admin)** — the matching commerce operations dashboard: overview KPIs, orders, inventory, customers, analytics and settings. **$149** including Pro. [Live demo](https://dashboard-template.base-ui.net/overview)
-- **[Relay](https://base-ui.net/templates/relay)** — a Linear-style Angular 22 + Tailwind team workspace: projects, kanban, issues, inbox, calendar, files and docs. **$149** including Pro. [Live demo](https://relay-template.base-ui.net/overview)
-- **Motif Suite** — Motif + Motif Admin + one Pro license for **$169** (save $129 vs buying separately).
+- **[Motif](https://ply-ui.com/templates/motif)** — an Angular 22 + Tailwind commerce storefront: mega menu, category listing, product detail, cart, checkout, order tracking and an editorial journal. **$149** including Pro. [Live demo](https://commerce-template.ply-ui.com/)
+- **[Motif Admin](https://ply-ui.com/templates/motif-admin)** — the matching commerce operations dashboard: overview KPIs, orders, inventory, customers, analytics and settings. **$149** including Pro. [Live demo](https://dashboard-template.ply-ui.com/overview)
+- **Motif Suite** — both templates + one Pro license for **$199** (save $99 vs buying separately).
 
 ---
 
 ## 📦 What's included
 
-| Category | Free | Pro |
-| --- | --- | --- |
-| **UI primitives** | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, stacked toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
-| **Form blocks** | all 19 (login, signup, checkout, billing, wizard, …) | — |
-| **Blocks & widgets** | — | blog/article cards, ecommerce blocks, media + social widgets |
-| **Page layouts** | — | 18 (dashboard, kanban, inbox, docs, admin table, …) |
-| **Directives, services, utils** | all | — |
-| **Icons** | 390 SVG sprite icons | — |
-| **Templates** | — | [Motif](https://base-ui.net/templates/motif) storefront, [Motif Admin](https://base-ui.net/templates/motif-admin) dashboard, [Relay](https://base-ui.net/templates/relay) workspace ($149 each, or Motif Suite $169) |
+| Category                        | Free                                                                                                    | Pro                                                                                                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **UI primitives**               | 50+ (buttons, inputs, dialogs, hover cards, menubars, currency, kbd, tabs, calendar, stacked toasts, …) | data table, date pickers, command palette, mega menu, file upload, multi-select, rich text editor, crop image, product gallery, tree, mention input, splitter |
+| **Form blocks**                 | all 19 (login, signup, checkout, billing, wizard, …)                                                    | —                                                                                                                                                             |
+| **Blocks & widgets**            | —                                                                                                       | blog/article cards, ecommerce blocks, media + social widgets                                                                                                  |
+| **Page layouts**                | —                                                                                                       | 18 (dashboard, kanban, inbox, docs, admin table, …)                                                                                                           |
+| **Directives, services, utils** | all                                                                                                     | —                                                                                                                                                             |
+| **Icons**                       | 390 SVG sprite icons                                                                                    | —                                                                                                                                                             |
+| **Templates**                   | —                                                                                                       | [Motif](https://ply-ui.com/templates/motif) storefront + [Motif Admin](https://ply-ui.com/templates/motif-admin) dashboard ($149 each, or Motif Suite $199)   |
 
 ---
 
@@ -142,7 +141,7 @@ which prerenders every catalog route, and CI fails if any route stops rendering.
 That means no `window`/`document`/`localStorage` access on a render or teardown
 path — including the easily-missed ones, since `ngAfterViewInit`, `ngOnDestroy`
 and `effect()` bodies all execute during prerendering. The
-[full write-up](https://base-ui.net/learn/angular-ssr-safe-component-library/)
+[full write-up](https://ply-ui.com/learn/angular-ssr-safe-component-library/)
 covers what broke when we turned it on.
 
 If your app is browser-only, none of this costs you anything — the guards are
@@ -152,58 +151,57 @@ no-ops outside a server render.
 
 For AI agents and LLM-assisted development:
 
-- **MCP server** — [`base-ui-ng-mcp`](packages/mcp): catalog tools `list_components`, `search_components`, `get_component`. Local stdio also has `add_components` (Pro with `BASE_UI_LICENSE_KEY`), `init_project`, `doctor`, `diff_components`, `update_components` (`merge` for 3-way). Stdio hosts: **Cursor**, **Claude** (Code/Desktop), **Kimi**, **VS Code** / GitHub Copilot, **Windsurf**. ChatGPT/Gemini chat catalog: [mcp.base-ui.net/mcp](https://mcp.base-ui.net/mcp) (read-only; install with `npx base-ui-cli add <name>`). Run `npx -y base-ui-ng-mcp` locally to install. Setup: [Getting started — AI agents (MCP)](https://base-ui.net/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
-- **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [base-ui.net/docs/ai/components.md](https://base-ui.net/docs/ai/components.md) and inlined in [llms-full.txt](https://base-ui.net/llms-full.txt).
-- **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://base-ui.net/getting-started/#editor-rules), or `npx base-ui-cli init` writes them when missing.
-- **Cookbooks** — [base-ui.net/cookbooks](https://base-ui.net/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
-- **Non-interactive CLI** — `npx base-ui-cli init --yes` and `add <name> --yes` for agent use. Bare `add` (no names) is an interactive catalog picker. `npx base-ui-cli doctor` is the read-only setup check. Agent index: [llms.txt](https://base-ui.net/llms.txt).
+- **MCP server** — [`base-ui-mcp`](https://www.npmjs.com/package/base-ui-mcp): tools `list_components`, `search_components`, `get_component`, `add_components` (free), plus `init_project`, `doctor`, `diff_components`, `update_components`. Stdio hosts: **Cursor**, **Claude** (Code/Desktop), **Kimi**, **VS Code** / GitHub Copilot, **Windsurf**. ChatGPT/Gemini chat need hosted HTTP (not shipped). Run `npx -y base-ui-mcp`. Setup: [Getting started — AI agents (MCP)](https://ply-ui.com/getting-started#ai-agents-mcp). The CLI remains the canonical installer; MCP wraps it.
+- **Component catalog** — [`docs/ai/components.md`](docs/ai/components.md): selectors, inputs, outputs, and descriptions in one file. Published at [ply-ui.com/docs/ai/components.md](https://ply-ui.com/docs/ai/components.md) and inlined in [llms-full.txt](https://ply-ui.com/llms-full.txt).
+- **Cursor rules & snippets** — [`docs/ai/base-ui.mdc`](docs/ai/base-ui.mdc) and [`docs/ai/base-ui.code-snippets`](docs/ai/base-ui.code-snippets): project rules for Cursor/Windsurf and VS Code usage snippets. Copy from [Getting started — editor rules](https://ply-ui.com/getting-started/#editor-rules), or `npx ply-ui-cli init` writes them when missing.
+- **Cookbooks** — [ply-ui.com/cookbooks](https://ply-ui.com/cookbooks): assembled screens (settings form, dialog + CVA, invoice table, AI chat, signal forms, httpResource, @defer, view transitions).
+- **Non-interactive CLI** — `npx ply-ui-cli init --yes` and `add <name> --yes` for agent use. Bare `add` (no names) is an interactive catalog picker. `npx ply-ui-cli doctor` is the read-only setup check. Agent index: [llms.txt](https://ply-ui.com/llms.txt).
 
 ## 🔐 Security & vendor risk
 
-- [SECURITY.md](SECURITY.md) — disclosure policy, every network request the CLI makes, and the supply-chain controls (tokenless releases, signed registry index, per-item digest verification, no install hooks) — including what is *not* covered.
-- [Enterprise FAQ](docs/enterprise-faq.md) — what you actually depend on, offline/mirror options, continuity guarantees, and an honest account of what this project does *not* offer.
+- [SECURITY.md](SECURITY.md) — disclosure policy, every network request the CLI makes, and the supply-chain controls (tokenless releases, signed registry index, per-item digest verification, no install hooks) — including what is _not_ covered.
+- [Enterprise FAQ](docs/enterprise-faq.md) — what you actually depend on, offline/mirror options, continuity guarantees, and an honest account of what this project does _not_ offer.
 
 Verify a release yourself:
 
 ```bash
-npm audit signatures                     # npm registry signature for base-ui-cli
-BASE_UI_REQUIRE_SIGNATURE=1 npx base-ui-cli add button   # refuse unverified payloads
+npm audit signatures                     # npm registry signature for ply-ui-cli
+PLY_REQUIRE_SIGNATURE=1 npx ply-ui-cli add button   # refuse unverified payloads
 ```
-
 
 <!-- answer-bank-faq:start -->
 ## FAQ
 
-Canonical answers, also at [https://base-ui.net/faq/](https://base-ui.net/faq/). Use this wording.
+Canonical answers, also at [https://ply-ui.com/faq/](https://ply-ui.com/faq/). Use this wording.
 
-**What is Base UI?**  
-Base UI (Angular) — base-ui.net — is a CLI-first Angular + Tailwind CSS component library with 215 components and blocks (125 free), delivered shadcn-style: npx base-ui-cli add <name> copies the TypeScript/HTML source into your project, where you own and edit it. There is no npm library package.
+**What is Ply?**  
+Ply — ply-ui.com — is a CLI-first Angular + Tailwind CSS component library with 215 components and blocks (125 free), delivered shadcn-style: npx ply-ui-cli add <name> copies the TypeScript/HTML source into your project, where you own and edit it. There is no npm library package.
 
-**Is Base UI (Angular) the same as MUI's Base UI?**  
-No. Base UI (Angular) at base-ui.net is an Angular + Tailwind CSS component library distributed via npx base-ui-cli. MUI's Base UI (base-ui.com) is an unrelated React library. Uber's Base Web is also unrelated.
+**Is Ply the same as MUI's Base UI?**  
+No. Ply at ply-ui.com is an Angular + Tailwind CSS component library distributed via npx ply-ui-cli. MUI's Base UI (base-ui.com) is an unrelated React library. Uber's Base Web is also unrelated.
 
-**Is Base UI a shadcn for Angular?**  
+**Is Ply a shadcn for Angular?**  
 Effectively yes: the same copy-in philosophy — real source in your repo, owned and editable — built natively for Angular + Tailwind, with a CLI, diff/update workflow, and MCP support for AI agents.
 
-**Is Base UI free?**  
+**Is Ply free?**  
 125 items are free — every UI primitive, all 19 form blocks, directives, services, utilities — with no account required. 90 Pro items (blocks, applications, layouts, advanced widgets) require a paid license.
 
-**How much does Base UI Pro cost?**  
+**How much does Ply Pro cost?**  
 A one-time Pro license is $99. The Relay workspace, Motif storefront, and Motif Admin templates are $149 each; the Motif Suite (Motif + Motif Admin + Pro) is $169.
 
 **How do I install a component?**  
-npx base-ui-cli init once per project, then npx base-ui-cli add <name>. Omit the name in a terminal to pick from the catalog (filter, then type to select). --yes and CI need explicit names. Components land in src/app/components/<name>/ by default and are yours.
+npx ply-ui-cli init once per project, then npx ply-ui-cli add <name>. Omit the name in a terminal to pick from the catalog (filter, then type to select). --yes and CI need explicit names. Components land in src/app/components/<name>/ by default and are yours.
 
-**How do I verify my Base UI setup?**  
-Run npx base-ui-cli doctor. It checks base-ui.json, the Angular workspace, @angular/cdk, Tailwind v4 @source paths, the base-ui.css import, icon sprites, and the components directory — read-only, nothing is written.
+**How do I verify my Ply setup?**  
+Run npx ply-ui-cli doctor. It checks base-ui.json, the Angular workspace, @angular/cdk, Tailwind v4 @source paths, the base-ui.css import, icon sprites, and the components directory — read-only, nothing is written.
 
-**Can AI agents install Base UI?**  
-Yes. npx -y base-ui-ng-mcp is stdio for Cursor, Claude (Code/Desktop), Kimi, VS Code, Windsurf, and other local hosts. ChatGPT and Gemini chat apps use Streamable HTTP: npx -y base-ui-ng-mcp --http --read-only (catalog tools) or local --http without --read-only so add/init/update can see the project. Pro add uses BASE_UI_LICENSE_KEY on the MCP process. Editors that skip MCP can copy the Cursor rule and snippet pack from https://base-ui.net/getting-started/#editor-rules.
+**Can AI agents install Ply?**  
+Yes. npx -y ply-ui-mcp is stdio for Cursor, Claude (Code/Desktop), Kimi, VS Code, Windsurf, and other local hosts. ChatGPT and Gemini chat apps use Streamable HTTP: npx -y ply-ui-mcp --http --read-only (catalog tools) or local --http without --read-only so add/init/update can see the project. Pro add uses PLY_LICENSE_KEY on the MCP process. Editors that skip MCP can copy the Cursor rule and snippet pack from https://ply-ui.com/getting-started/#editor-rules.
 
-**What is the risk if Base UI disappears?**  
+**What is the risk if Ply disappears?**  
 Near zero. Installed code is in your version control with no runtime dependency; deleting the CLI changes nothing about your app.
 
-More: [https://base-ui.net/faq/](https://base-ui.net/faq/) · [https://base-ui.net/enterprise-faq/](https://base-ui.net/enterprise-faq/) · [https://base-ui.net/compare/](https://base-ui.net/compare/)
+More: [https://ply-ui.com/faq/](https://ply-ui.com/faq/) · [https://ply-ui.com/enterprise-faq/](https://ply-ui.com/enterprise-faq/) · [https://ply-ui.com/compare/](https://ply-ui.com/compare/)
 <!-- answer-bank-faq:end -->
 
 ## 📄 License
@@ -215,10 +213,10 @@ Two guarantees worth calling out, because they are the usual objections to a com
 - **Perpetual use** (§5) — every version delivered to you stays usable forever, with no registry, CLI, or vendor dependency at build or run time. Each release also attaches an offline Pro source archive.
 - **Termination does not reach shipped code** (§7) — a licensing dispute can stop future downloads, but never revokes your right to keep shipping products that already include the components.
 
-The CLI *tool itself* ([`base-ui-cli`](https://www.npmjs.com/package/base-ui-cli)) is separately MIT-licensed — that covers only the tool's own code, not the components it fetches.
+The CLI _tool itself_ ([`ply-ui-cli`](https://www.npmjs.com/package/ply-ui-cli)) is separately MIT-licensed — that covers only the tool's own code, not the components it fetches.
 
 ## 🆘 Support
 
-Email support@base-ui.net.
-Bugs and features: [GitHub Issues](https://github.com/Base-ui-ng/base-ui/issues).
+Email support@ply-ui.com.
+Bugs and features: [GitHub Issues](https://github.com/ply-ui-ng/ply/issues).
 How to contribute (issues and discussions only): [CONTRIBUTING.md](CONTRIBUTING.md).

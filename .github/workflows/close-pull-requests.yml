@@ -22,9 +22,9 @@ jobs:
               '',
               'This repository is a **docs and issues hub** — component source is not stored here, and we do not merge pull requests (the next docs sync would overwrite them).',
               '',
-              '- Bugs / features: https://github.com/Base-ui-ng/base-ui/issues/new/choose',
-              '- Questions: https://github.com/Base-ui-ng/base-ui/discussions',
-              '- Install: `npx base-ui-cli add button` from https://base-ui.net',
+              '- Bugs / features: https://github.com/ply-ui-ng/ply/issues/new/choose',
+              '- Questions: https://github.com/ply-ui-ng/ply/discussions',
+              '- Install: `npx ply-ui-cli add button` from https://ply-ui.com',
               '',
               'See CONTRIBUTING.md.',
             ].join('\n');

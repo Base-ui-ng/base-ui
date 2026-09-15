@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve Base UI
+about: Create a report to help us improve Ply
 title: '[BUG] '
 labels: bug
 assignees: ''
@@ -12,11 +12,11 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Component(s) involved**
-e.g. `base-button`, `base-dialog`, `data-table`, `base-ui-cli`
+e.g. `ply-button`, `ply-dialog`, `data-table`, `ply-ui-cli`
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Run `npx base-ui-cli add ...`
+1. Run `npx ply-ui-cli add ...`
 2. Configure `...`
 3. See error
 
